@@ -1,0 +1,398 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">TIDE</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Help</a></li>
+            <li><%=  link_to "Logout", :controller => "users", :action => "logout" %></li>
+          </ul>
+        </div>
+      </div>
+</nav>
+
+<div class="container-fluid">
+      <div class="row">
+        
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="<%= 'active' if @tabactive == 'dashboard' %>"><a href="#dashboard">Dashboard </a></li>
+          </ul>
+        </div>
+        
+
+       	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+       		
+          <div id="dashboard" >          
+
+		  </br>
+		  </br>
+		  </br>
+
+          <div class="row placeholders">
+          	
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img class="img-circle" src="assets/plan-icon.png" alt="Generic placeholder image" width="140" height="140"></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#showPlans">View Plans</button></br>
+              <span class="text-muted">View all plans for the TIDE application</span>
+            </div>
+
+          	
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img class="img-circle" src="assets/buy.png" alt="Generic placeholder image" width="140" height="140"></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestPackage">Request Package</button></br>
+              <span class="text-muted">Requet a tide shiny R application package to download</span>
+            </div>
+
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img class="img-circle" src="assets/profile.png" alt="Generic placeholder image" width="140" height="140"></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profile">User Account</button></br>
+              <span class="text-muted">Modify your user account information</span>
+            </div>
+            
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img class="img-circle" src="assets/support.png" alt="Generic placeholder image" width="140" height="140"></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createIssue">Help Desk</button></br>
+              <span class="text-muted">Create a help desk ticket for any question or issue</span>
+            </div>
+          
+          </div>  
+
+          <div class="row placeholders">
+
+			<div class="col-xs-6 col-sm-3 placeholder">
+              <img class="img-circle" src="assets/oldrequest.png" alt="Generic placeholder image" width="140" height="140"></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#oldRequests">Old Requests</button></br>
+              <span class="text-muted">View your previous requets</span>
+            </div>
+
+			<div class="col-xs-6 col-sm-3 placeholder">
+              <img class="img-circle" src="assets/archive.png" alt="Generic placeholder image" width="140" height="140"></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#downloadArchive">Archive of Downloads</button></br>
+              <span class="text-muted">View all previous TIDE shiny R package versions</span>
+            </div>
+
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img class="img-circle" src="assets/project-icon.png" alt="Generic placeholder image" width="140" height="140"></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tideProject">TIDE project</button></br>
+              <span class="text-muted">View TIDE project description</span>
+            </div>
+
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img class="img-circle" src="assets/team-icon.png" alt="Generic placeholder image" width="140" height="140"></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tideTeam">TIDE team</button></br>
+              <span class="text-muted">View TIDE project members</span>
+            </div>
+
+
+		  </div>
+
+
+		  <div class="panel panel-success">
+		   <div class="panel-heading">Downloads</div>
+		   <div class="panel-body">
+          <% if @downloads.length == 0 -%>
+          	<div align="center">
+           	<strong>No Downloads found. Maybe <a class="btn-link" data-toggle="modal" data-target="#requestPackage">request</a> a package now!</strong>
+           	</div>
+          <% else -%>	
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>File</th>
+                  <th>File Description</th>
+                  <th>Date Added</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1,001</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    	  <% end -%>
+		  </div>
+          </div>        
+          
+          </div>        
+
+
+        </div>
+        
+      </div>
+    </div>
+    
+
+
+<!-- dashboard modals -->
+
+<!-- request application -->
+<div class="modal fade" id="requestPackage" tabindex="-1" role="dialog" aria-labelledby="mrp">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="mrp">Requet TIDE Shiny R Package to Download</h4>
+      </div>
+      <div class="modal-body">
+	    <%= form_tag(:controller => 'users', :action => 'requestPackage') do %>
+			<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %></br>
+			<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> </br> 
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       	<%= submit_tag "Submit", :class => 'btn btn-primary' %>
+		<% end -%>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- request application -->
+<div class="modal fade" id="requestPackage2" tabindex="-1" role="dialog" aria-labelledby="mrp">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="mrp">Requet TIDE Shiny R Package to Download</h4>
+      </div>
+      <div class="modal-body">
+	    <%= form_tag(:controller => 'users', :action => 'requestPackage') do %>
+			<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %></br>
+			<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> </br> 
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       	<%= submit_tag "Submit", :class => 'btn btn-primary' %>
+		<% end -%>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- create issue -->
+<div class="modal fade" id="createIssue" tabindex="-1" role="dialog" aria-labelledby="mci">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="mci">Crate a Help Desk Tikcet
+      <div class="modal-body">
+	    <%= form_tag(:controller => 'users', :action => 'requestPackage') do %>
+			<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %></br>
+			<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> </br> 
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       	<%= submit_tag "Submit", :class => 'btn btn-primary' %>
+		<% end -%>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+<!-- profile -->
+<div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="mup">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="mup">Update User Account Details
+      <div class="modal-body">
+	    <%= form_tag(:controller => 'users', :action => 'requestPackage') do %>
+			<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %></br>
+			<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> </br> 
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       	<%= submit_tag "Submit", :class => 'btn btn-primary' %>
+		<% end -%>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- old requests -->
+<div class="modal fade" id="oldRequests" tabindex="-1" role="dialog" aria-labelledby="mor">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="mor">Update User Account Details
+      <div class="modal-body">
+	    <%= form_tag(:controller => 'users', :action => 'requestPackage') do %>
+			<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %></br>
+			<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> </br> 
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       	<%= submit_tag "Submit", :class => 'btn btn-primary' %>
+		<% end -%>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- download archive -->
+<div class="modal fade" id="downloadArchive" tabindex="-1" role="dialog" aria-labelledby="mda">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="mda">Update User Account Details
+      <div class="modal-body">
+	    <%= form_tag(:controller => 'users', :action => 'requestPackage') do %>
+			<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %></br>
+			<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> </br> 
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       	<%= submit_tag "Submit", :class => 'btn btn-primary' %>
+		<% end -%>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+<!-- view plans -->
+<div class="modal fade bs-example-modal-lg" id="showPlans" tabindex="-1" role="dialog" aria-labelledby="mvp">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="mvp">TIDE plans</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="row">
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/academic.png" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Academic</h2>
+          				<p class="lead">
+          					Academic/Research Institutes</br>
+          					Universities</br>
+          					2500 euros/anuum</br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/sme.png" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>SME</h2>
+          				<p class="lead">
+          					Small/Medium Organizations</br>
+          					&lt; 100 people </br>
+          					5000 euros/annum</br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/corporate.png" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Corporate</h2>
+          				<p class="lead">
+          					Large Corporations</br>
+          					&gt; 100 people</br>
+          					10.000 euros/annum </br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        </div>
+      </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- tide project -->
+<div class="modal fade bs-example-modal-lg" id="tideProject" tabindex="-1" role="dialog" aria-labelledby="mtp">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="mtp">TIDE project</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="row">
+        		<div class="col-lg-12">
+        			<p>
+	          		TIDE is a shiny R web tool to rapidly assess genome editing by CRISPR-Cas9 of a target locus determined by a guide RNA (sgRNA). Based on the quantitative sequence trace data 
+    	      		from two standard capillary sequencing reactions the TIDE software quantifies the editing efficacy and identifies the predominant types of insertions and deletions (indels) in 
+        	  		the DNA of a targeted cell pool. See Brinkman et al, Nucl. Acids Res. (2014) for a detailed explanation and examples.
+               		</p>
+        		</div><!-- /.col-lg-4 -->
+        </div>
+      </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- view plans -->
+<div class="modal fade bs-example-modal-lg" id="tideTeam" tabindex="-1" role="dialog" aria-labelledby="mtt">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="mtt">TIDE team</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="row">
+      		   <div class="col-lg-4">
+          			<img class="img-circle" src="assets/bas.jpg" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Bas van Steensel</h2>
+          				<p>
+          					Group leader, Gene Regulation</br>
+          					website</br>
+          					...</br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/tao.jpg" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Tao Chen</h2>
+          				<p>
+          					PostDoc, Gene Regulation</br>
+          					website</br>
+          					...</br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/eva.jpg" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Eva Brinkman</h2>
+          				<p>
+          					PostDoc, Gene Regulation</br>
+          					website</br>
+          					...</br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        </div>
+      </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>

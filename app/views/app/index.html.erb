@@ -1,0 +1,164 @@
+
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="assets/tide3.png" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>TIDE: Tracking of Indels by DEcomposition</h1>
+				<p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </br>
+    <div align="center">
+		<% if flash[:color]== "invalid" %>
+    	<div class="alert alert-warning alert-dismissible" role="alert">
+ 	 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong><%= flash[:notice]%></strong>
+		</div>
+		<%end%>
+		<div class="form-inline">
+		<%= form_tag(:controller => 'users', :action => 'autheticateUser') do %>
+			<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %> &nbsp;
+			<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> &nbsp; 
+			<%= submit_tag "Login", :class => 'btn btn-primary btn-medium' %>
+		<% end -%>
+		</div>	
+    </div>	
+      
+    </div>
+    
+    
+    <div class="container marketing">
+
+
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="assets/project-icon.png" alt="Generic placeholder image" width="140" height="140">
+          <h2>Project</h2>
+			<a class="btn btn-default" href="#project" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="assets/team-icon.png" alt="Generic placeholder image" width="140" height="140">
+          <h2>Team</h2>
+			<a class="btn btn-default" href="#team" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="assets/plan-icon.png" alt="Generic placeholder image" width="140" height="140">
+          <h2>Plans</h2>
+			<a class="btn btn-default" href="#plan" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<div id="project">
+        	  <h2 class="featurette-heading">TIDE <span class="text-muted">project</span></h2>
+          	   <p class="lead">
+	          	TIDE is a shiny R web tool to rapidly assess genome editing by CRISPR-Cas9 of a target locus determined by a guide RNA (sgRNA). Based on the quantitative sequence trace data 
+    	      	from two standard capillary sequencing reactions the TIDE software quantifies the editing efficacy and identifies the predominant types of insertions and deletions (indels) in 
+        	  	the DNA of a targeted cell pool. See Brinkman et al, Nucl. Acids Res. (2014) for a detailed explanation and examples.
+               </p>
+               
+               <a href="#">Back to top</a>
+        	</div>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<div id="team">
+        	  <h2 class="featurette-heading">TIDE <span class="text-muted">team</span></h2>
+        	  </br>
+        	  </br>
+        	   <div class="row">
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/bas.jpg" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Bas van Steensel</h2>
+          				<p class="lead">
+          					Group leader, Gene Regulation</br>
+          					website</br>
+          					...</br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/tao.jpg" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Tao Chen</h2>
+          				<p class="lead">
+          					PostDoc, Gene Regulation</br>
+          					website</br>
+          					...</br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/eva.jpg" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Eva Brinkman</h2>
+          				<p class="lead">
+          					PostDoc, Gene Regulation</br>
+          					website</br>
+          					...</br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+               <a href="#">Back to top</a>
+        	 </div>
+        	</div>
+      	</div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<div id="plan">
+        	  <h2 class="featurette-heading">TIDE <span class="text-muted">plans</span></h2>
+        	  </br>
+        	  </br>
+        	   <div class="row">
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/academic.png" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Academic</h2>
+          				<p class="lead">
+          					Academic/Research Institutes</br>
+          					Universities</br>
+          					2500 euros/anuum</br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/sme.png" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>SME</h2>
+          				<p class="lead">
+          					Small/Medium Organizations</br>
+          					&lt; 100 people </br>
+          					5000 euros/annum</br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/corporate.png" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Corporate</h2>
+          				<p class="lead">
+          					Large Corporations</br>
+          					&gt; 100 people</br>
+          					10.000 euros/annum </br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+               <a href="#">Back to top</a>
+        	</div>
+        </div>
+      </div>
+
+
+      <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
