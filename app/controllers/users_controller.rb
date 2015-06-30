@@ -21,11 +21,6 @@ class UsersController < ApplicationController
   def home
     @downloads = []
     @tabactive = "dashboard"
-    if (params[:tab] == nil or params[:tab] == "")
-      @tabactive = "dashboard"
-    else
-      @tabactive = params[:tab]
-    end
   end
   
   def logout
