@@ -19,8 +19,9 @@ class UsersController < ApplicationController
   end
   
   def home
-    @downloads = []
+    @downloads = ['test']
     @tabactive = "dashboard"
+    @previousactions = []
   end
   
   def logout

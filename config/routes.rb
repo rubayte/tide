@@ -6,6 +6,7 @@ Tide::Application.routes.draw do
   root :to => 'app#index'
   match "index", :to => 'app#index'
   match "home", :to => 'users#home'
+  match "logout", :to => 'users#logout'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
