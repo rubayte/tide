@@ -1,0 +1,123 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index">TIDE</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+          </ul>	
+          <ul class="nav navbar-nav navbar-right">
+          	<li>
+          	<div class="navbar-form navbar-right">
+			<%= form_tag(:controller => 'users', :action => 'autheticateUser') do %>
+				<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %> &nbsp;
+				<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> &nbsp; 
+			<%= submit_tag "Login", :class => 'btn btn-primary btn-medium' %>
+			<% end -%>
+			</div>	
+			</li>
+            <li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span></a></li>
+          </ul>
+        </div>
+      </div>
+</nav>
+
+</br>
+</br>
+</br>
+
+ <div class="container marketing">
+ 	
+      	
+      	<h2>Order TIDE Shiny R Package</h2>
+        <p><i>**all fields are mandatory</i></p>
+        
+   	    
+   	    <%= form_tag(:controller => 'users', :action => 'orderAction') do %>
+		   	<%= select_tag :chosenPlan, options_for_select([ 'Select a plan', 'Academic', 'SME', 'Corporate' ], "Select a plan"), :class => "form-control" %></br>
+		   	<button type="button" class="btn btn-link" data-toggle="modal" data-target="#showPlans">Show me the plans again!</button></br></br>    
+   		    <%= text_field_tag :name , nil, :placeholder => "Full name", :class => "form-control" %></br>
+   		    <%= text_field_tag :email , nil, :placeholder => "Email", :class => "form-control" %></br>
+   		    <%= text_field_tag :organization , nil, :placeholder => "Company / Institute / University name", :class => "form-control" %></br>
+			<%= text_area_tag :organizationAddress , nil, :placeholder => "Company / Institute / University complete address", :class => "form-control" %></br>
+			<%= text_field_tag :contactNumber , nil, :placeholder => "Your contact number at organization", :class => "form-control" %></br>
+			<%= text_field_tag :webAddress , nil, :placeholder => "Website of company / institute/ university", :class => "form-control" %></br>
+       		<%= submit_tag "Submit Order", :class => 'btn btn-primary' %> &nbsp; <a class="btn btn-danger" href="index" role="button">Cancel</a>
+		<% end -%>
+        
+
+   
+	  <hr class="featurette-divider">
+
+      <!-- FOOTER -->
+      <footer>
+      	<div class="row">
+      		
+	      	<div class="col-lg-4">
+    		    <p align="left">&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %>
+    		    </br>For any query, <%= mail_to "Research-IT@nki.nl", '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp; NKI Research-IT'.html_safe %>
+    		    </br><a href="#">Privacy</a> 
+    		    </br> <a href="#">Terms</a>
+        		</p>
+        	</div>
+        	<div class="col-lg-4">
+        	</div>
+        	<div class="col-lg-4">
+				<img  src="assets/nki.png" alt="Generic placeholder image" width="180" height="100">
+    	    </div>
+    	 </div>   
+      </footer>
+
+</div><!-- /.container -->
+
+<!-- view plans -->
+<div class="modal fade bs-example-modal-lg" id="showPlans" tabindex="-1" role="dialog" aria-labelledby="mvp">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="mvp">TIDE plans</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="row">
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/academic.png" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Academic</h2>
+          				<p>
+          					Academic/Research Institutes</br>
+          					Universities</br>
+          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>2500 per year</br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/sme.png" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>SME</h2>
+          				<p>
+          					Small/Medium Organizations</br>
+          					&lt; 100 people </br>
+          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>5000 per year</br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/corporate.png" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Corporate</h2>
+          				<p>
+          					Large Corporations</br>
+          					&gt; 100 people</br>
+          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>10000 per year </br>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        </div>
+      </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>

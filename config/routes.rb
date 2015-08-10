@@ -5,6 +5,7 @@ Tide::Application.routes.draw do
   match ':controller(/:action(/:id))(.:format)'
   root :to => 'app#index'
   match "index", :to => 'app#index'
+  match "order", :to => 'app#order'
   match "home", :to => 'users#home'
   match "logout", :to => 'users#logout'
 
