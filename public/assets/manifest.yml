@@ -11,6 +11,8 @@ buuy.png: buuy-82e472e8228a92bb0e5867df0ffd27d6.png
 buuy/index.png: buuy-82e472e8228a92bb0e5867df0ffd27d6.png
 buy.png: buy-82e472e8228a92bb0e5867df0ffd27d6.png
 buy/index.png: buy-82e472e8228a92bb0e5867df0ffd27d6.png
+buy2.png: buy2-83ffc8e286dee9fc29ec86c8d21f2ccc.png
+buy2/index.png: buy2-83ffc8e286dee9fc29ec86c8d21f2ccc.png
 corporate.png: corporate-2ba9523436f91c9aa8daa34331f678f7.png
 corporate/index.png: corporate-2ba9523436f91c9aa8daa34331f678f7.png
 coverpic.png: coverpic-48db23344f079a8741883575c4d83895.png
@@ -29,6 +31,8 @@ project-icon.png: project-icon-6e1f74e52f19e397087cb58ce14cd0b9.png
 project-icon/index.png: project-icon-6e1f74e52f19e397087cb58ce14cd0b9.png
 rails.png: rails-71e944d9b39043eba50b77788c0d767f.png
 rails/index.png: rails-71e944d9b39043eba50b77788c0d767f.png
+shinyR.jpg: shinyR-1677b502501a7b64b613095cfce0f0d3.jpg
+shinyR/index.jpg: shinyR-1677b502501a7b64b613095cfce0f0d3.jpg
 sme.png: sme-2947f22d2afdaa1a916f8ac37c4c536f.png
 sme/index.png: sme-2947f22d2afdaa1a916f8ac37c4c536f.png
 support.png: support-4db0354cbc7395adbd9a68430b341ed2.png
@@ -37,6 +41,8 @@ tao.jpg: tao-33688013ac10c082ef9cdba82b891e3c.jpg
 tao/index.jpg: tao-33688013ac10c082ef9cdba82b891e3c.jpg
 team-icon.png: team-icon-df8ae4a70352e263a8e88519a61dec44.png
 team-icon/index.png: team-icon-df8ae4a70352e263a8e88519a61dec44.png
+tide-project-f1.png: tide-project-f1-25843df1ea86760dba80fb1f5c758e06.png
+tide-project-f1/index.png: tide-project-f1-25843df1ea86760dba80fb1f5c758e06.png
 tide.png: tide-ffe1cfab534b9f03c4aeff79d8e8bbd8.png
 tide/index.png: tide-ffe1cfab534b9f03c4aeff79d8e8bbd8.png
 tide2.png: tide2-a6e86106b5f4e8f2e5d6a207cdc3f87c.png

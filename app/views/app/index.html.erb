@@ -1,4 +1,34 @@
-
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">TIDE</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+          	<li><a href="#team">TIDE team</a></li>
+          	<li><a href="#plan">Plans/Pricing</a></li>
+          </ul>	
+          <ul class="nav navbar-nav navbar-right">
+          	<li>
+          	<div class="navbar-form navbar-right">
+			<%= form_tag(:controller => 'users', :action => 'autheticateUser') do %>
+				<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %> &nbsp;
+				<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> &nbsp; 
+			<%= submit_tag "Login", :class => 'btn btn-primary btn-medium' %>
+			<% end -%>
+			</div>	
+			</li>
+            <li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span></a></li>
+          </ul>
+        </div>
+      </div>
+</nav>
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
@@ -8,70 +38,42 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>TIDE: Tracking of Indels by DEcomposition</h1>
-				<p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up to request TIDE shiny R package</a></p>
+              <p>Easy quantitative assessment of genome editing</p>
+              <div align="center">
+			  	<a class="btn btn-lg btn-primary" href="#" role="button"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> &nbsp; Open TIDE shiny R App</a>
+	  			<a class="btn btn-lg btn-primary" href="#" role="button"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span> &nbsp; Order TIDE shiny R package</a>
+      		  </div>
             </div>
           </div>
         </div>
       </div>
-      </br>
-    <div align="center">
-		<% if flash[:color]== "invalid" %>
-    	<div class="alert alert-warning alert-dismissible" role="alert">
- 	 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong><%= flash[:notice]%></strong>
-		</div>
-		<%end%>
-		<div class="form-inline">
-		<%= form_tag(:controller => 'users', :action => 'autheticateUser') do %>
-			<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %> &nbsp;
-			<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> &nbsp; 
-			<%= submit_tag "Login", :class => 'btn btn-primary btn-medium' %>
-		<% end -%>
-		</div>	
-    </div>	
-      
     </div>
     
     
     <div class="container marketing">
 
-
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="assets/project-icon.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Project</h2>
-			<a class="btn btn-default" href="#project" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="assets/team-icon.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Team</h2>
-			<a class="btn btn-default" href="#team" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="assets/plan-icon.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Plans</h2>
-			<a class="btn btn-default" href="#plan" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        
-      </div><!-- /.row -->
-
-
       <!-- START THE FEATURETTES -->
 
-      <hr class="featurette-divider">
 
       <div class="row featurette">
-        <div class="col-md-12">
+        <div class="col-md-7">
         	<div id="project">
-        	  <h2 class="featurette-heading">TIDE <span class="text-muted">project</span></h2>
           	   <p class="lead">
-	          	TIDE is a shiny R web tool to rapidly assess genome editing by CRISPR-Cas9 of a target locus determined by a guide RNA (sgRNA). Based on the quantitative sequence trace data 
-    	      	from two standard capillary sequencing reactions the TIDE software quantifies the editing efficacy and identifies the predominant types of insertions and deletions (indels) in 
-        	  	the DNA of a targeted cell pool. See Brinkman et al, Nucl. Acids Res. (2014) for a detailed explanation and examples.
+	          	TIDE is a cheap, simple and accurate assay to precisely determine the spectrum and frequency of targeted mutations generated in a pool of cells by genome editing tools 
+	          	such as CRISPR/Cas9, TALENs and ZFNs. TIDE requires only standard molecular biology reagents and involves three simple steps: </br></br>
+	          	1.	One pair of standard PCR reactions.</br>
+				2.	One pair of standard capillary ("Sanger") sequencing reactions.</br>
+				3.	Analysis of the two resulting raw sequencing files using a dedicated sequence trace decomposition shiny R web tool. The algorithm accurately reconstructs the spectrum 
+				of indels from the sequence traces. </br></br>
+				The web tool reports the precise identity of the mutations and their frequencies in a few intuitive graphs and tables. 
+				See Brinkman et al, Nucl. Acids Res. (2014) for a detailed explanation and examples.
                </p>
                <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
         	</div>
         </div>
+        <div class="col-md-5">
+        	<img class="img-rounded" src="assets/tide-project-f1.png" alt="Generic placeholder image" width="600" height="500">
+        </div>	
       </div>
 
       <hr class="featurette-divider">
