@@ -1,0 +1,72 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">TIDE</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span></a></li>
+          </ul>
+        </div>
+      </div>
+</nav>
+
+</br>
+</br>
+</br>
+
+ <div class="container marketing">
+ 	
+      	
+      	<h2>To get started, Update your password!</h2>
+        <p><i>**all fields are mandatory</i></p>
+        
+   	    <% if flash[:color]== "valid" %>
+			<div class="valid_notice">
+				<p><%= flash[:notice]%></p>
+			</div>
+		<% elsif flash[:color]== "invalid"%>
+			<div class="invalid_notice">
+				<p><%=flash[:notice]%></p>
+				</div>
+		<%else%>
+		<%end%>
+		
+
+   	    <%= form_tag(:controller => 'users', :action => 'confirmNewPassword') do %>
+   		    <%= hidden_field_tag :usermail, @remail %>
+   		    <%= password_field_tag :password, nil, :placeholder => "new password", :class => "form-control" %></br>
+   		    <%= password_field_tag :confirmPassword, nil, :placeholder => "new password again", :class => "form-control" %></br>
+       		<%= submit_tag "Save", :class => 'btn btn-primary' %>
+		<% end -%>
+        
+
+   
+	  <hr class="featurette-divider">
+
+      <!-- FOOTER -->
+      <footer>
+      	<div class="row">
+      		
+	      	<div class="col-lg-4">
+    		    <p align="left">&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %>
+    		    </br>For any query, <%= mail_to "Research-IT@nki.nl", '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp; NKI Research-IT'.html_safe %>
+    		    </br><a href="#">Privacy</a> 
+    		    </br> <a href="#">Terms</a>
+        		</p>
+        	</div>
+        	<div class="col-lg-4">
+        	</div>
+        	<div class="col-lg-4">
+				<img  src="assets/nki.png" alt="Generic placeholder image" width="180" height="100">
+    	    </div>
+    	 </div>   
+      </footer>
+
+</div><!-- /.container -->

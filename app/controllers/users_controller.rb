@@ -14,10 +14,14 @@ class UsersController < ApplicationController
     if msg == "valid"  
       redirect_to :home
       return
+    elsif msg == "update_pass"
+      redirect_to :controller => "users", :action => "updatePass", :refemail => params[:email]
+      return
     else
       redirect_to :controller => "app", :action => "index"
       return
     end 
+  
   end
   
   def home
@@ -30,6 +34,39 @@ class UsersController < ApplicationController
     session[:user] = nil
     redirect_to :controller => "app", :action => "index"
     return  
+  end
+  
+  def updatePass
+    @remail = params[:refemail]    
+  end
+  
+  def confirmNewPassword
+
+    msg = nil
+    
+    if params[:password] == "" or params[:password] == nil or params[:confirmPassword] == "" or params[:confirmPassword] == nil
+      redirect_to :controller => "users", :action => "updatePass", :refemail => params[:usermail]
+      flash[:notice] = "all fields must be completed!"
+      flash[:color]= "invalid"
+      return        
+    end
+    if params[:password] == params[:confirmPassword]
+      msg = User.changePassword(params)
+      if msg == "updated"
+        redirect_to :home
+        return
+      else
+        redirect_to :updatePass, :email => params[:email]
+        flash[:notice] = "something went wrong. try again!"
+        flash[:color]= "invalid"
+        return  
+      end
+    else
+      redirect_to :updatePass, :email => params[:email]
+      flash[:notice] = "passwords dont match. try again!"
+      flash[:color]= "invalid"
+      return
+    end  
   end
   
 end

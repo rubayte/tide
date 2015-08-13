@@ -31,11 +31,24 @@
 
        	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
        		
+		
           <div id="dashboard" >          
+
+		
 
 		  </br>
 		  </br>
 		  </br>
+		  <% if flash[:color]== "valid" %>
+			<div class="valid_notice">
+				<p><%= flash[:notice]%></p>
+			</div>
+			<% elsif flash[:color]== "invalid"%>
+			<div class="invalid_notice">
+				<p><%=flash[:notice]%></p>
+				</div>
+		<%else%>
+		<%end%>
 
           <div class="row placeholders">
           	
