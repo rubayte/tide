@@ -27,7 +27,7 @@
 
 development:
   adapter: ruby_mysql
-  database: ccp
+  database: tide
   username: wwwUser
   password: wwwpublic
   host: 127.0.0.1
@@ -36,7 +36,7 @@ development:
 
 production:
   adapter: ruby_mysql
-  database: ccp
+  database: tide
   username: wwwUser
   password: wwwpublic
   host: 127.0.0.1  

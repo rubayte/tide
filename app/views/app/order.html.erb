@@ -38,8 +38,19 @@
       	<h2>Order TIDE Shiny R Package</h2>
         <p><i>**all fields are mandatory</i></p>
         
-   	    
-   	    <%= form_tag(:controller => 'users', :action => 'orderAction') do %>
+   	    <% if flash[:color]== "valid" %>
+			<div class="valid_notice">
+				<p><%= flash[:notice]%></p>
+			</div>
+		<% elsif flash[:color]== "invalid"%>
+			<div class="invalid_notice">
+				<p><%=flash[:notice]%></p>
+				</div>
+		<%else%>
+		<%end%>
+		
+
+   	    <%= form_tag(:controller => 'app', :action => 'orderAction') do %>
 		   	<%= select_tag :chosenPlan, options_for_select([ 'Select a plan', 'Academic', 'SME', 'Corporate' ], "Select a plan"), :class => "form-control" %></br>
 		   	<button type="button" class="btn btn-link" data-toggle="modal" data-target="#showPlans">Show me the plans again!</button></br></br>    
    		    <%= text_field_tag :name , nil, :placeholder => "Full name", :class => "form-control" %></br>

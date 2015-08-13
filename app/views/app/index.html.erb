@@ -50,6 +50,17 @@
     </div>
     
     
+    <% if flash[:color]== "valid" %>
+			<div class="valid_notice">
+				<p><%= flash[:notice]%></p>
+			</div>
+		<% elsif flash[:color]== "invalid"%>
+			<div class="invalid_notice">
+				<p><%=flash[:notice]%></p>
+				</div>
+		<%else%>
+		<%end%>
+    
     <div class="container marketing">
 
       <!-- START THE FEATURETTES -->
