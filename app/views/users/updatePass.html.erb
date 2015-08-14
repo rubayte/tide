@@ -30,11 +30,13 @@
    	    <% if flash[:color]== "valid" %>
 			<div class="valid_notice">
 				<p><%= flash[:notice]%></p>
+				</br>
 			</div>
 		<% elsif flash[:color]== "invalid"%>
 			<div class="invalid_notice">
 				<p><%=flash[:notice]%></p>
-				</div>
+				</br>
+			</div>
 		<%else%>
 		<%end%>
 		

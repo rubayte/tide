@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     end
     msg = User.getAuthentication(params)
     if msg == "valid"  
+      session[:user] = params[:email]
       redirect_to :home
       return
     elsif msg == "update_pass"
@@ -25,11 +26,25 @@ class UsersController < ApplicationController
   end
   
   def home
-    @downloads = ['test']
+    @downloads = Files.getFilesByLocation("cur_downloads")
+    @downloadsArchive = Files.getFilesByLocation("downloads")
     @tabactive = "dashboard"
     @previousactions = []
   end
   
+  def tideproject
+    @tabactive = "project"
+  end
+  
+  def tideteam
+    @tabactive = "team"
+  end
+
+  def tideplans
+    @tabactive = "plans"
+  end
+
+
   def logout
     session[:user] = nil
     redirect_to :controller => "app", :action => "index"
@@ -67,6 +82,14 @@ class UsersController < ApplicationController
       flash[:color]= "invalid"
       return
     end  
+  end
+  
+  def download
+    send_file Rails.root.join(params[:location], params[:file]), :disposition => 'attachment'
+  end
+  
+  def view
+    send_file(Rails.root.join(params[:location], params[:file]), :filename => params[:file], :disposition => 'inline', :type => "application/pdf")
   end
   
 end

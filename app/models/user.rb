@@ -29,10 +29,8 @@ class User
       if (passnewtomatch == dbpass)
         if updatePass == '1'
           msg = "update_pass"
-
         else
           msg = "valid"
-
         end
       else
         msg = passnewtomatch
