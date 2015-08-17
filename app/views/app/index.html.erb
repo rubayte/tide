@@ -13,6 +13,7 @@
           <ul class="nav navbar-nav navbar-left">
           	<li><a href="#team">TIDE team</a></li>
           	<li><a href="#plan">Plans/Pricing</a></li>
+          	<li><a href="#requirements">Technical requirements</a></li>
           </ul>	
           <ul class="nav navbar-nav navbar-right">
           	<li>
@@ -172,6 +173,52 @@
       </div>
       </div>
 
+	  <hr class="featurette-divider">
+	  
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<div id="requirements">
+        	  <h2 class="featurette-heading">Technical <span class="text-muted">requirements</span></h2>
+        	  </br>
+        	  </br>
+        	   <div class="row">
+        		<div class="col-lg-6">
+         	 			<h2>Deploy TIDE on Shiny R Server</h2>
+          				<p>
+          					Required platform: <strong>Web Server</strong></br>
+          					Required Software: </br>
+          					<ul>
+          						<li>Web Server OS: <strong>Ubuntu 12.04 or later / Fedora 19+ / RedHat 7+ / openSUSE 13.1+</strong> (For installing the Shiny Server binary 64 bit architecture is needed)</li>
+          						<li>R version: <strong>3.1.1 or later</strong></li>
+          					</ul>
+          					Comments: </br>
+          					<ul>
+          						<li>Installing Shiny Server on Amazon linux instances (e.g. EC2 t2 micro) is also possible. But make sure you have a compatible linux OS (e.g. ‘Amazon Linux AMI’).</li>
+          						<li>The required R packages from TIDE and shiny package works with R version 3.0.2 or higher but it is highly recommended to get a version of R 3.1.1 for a smoother deployment of TIDE shiny R package.</li>
+          					</ul>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        		<div class="col-lg-6">
+         	 			<h2>Deploy TIDE on <%= link_to "shinyapps.io", "http://www.shinyapps.io/", :target => "_blank" %> Cloud Server</h2>
+          				<p>
+          					Required platform: <strong>Any local machine</strong> from where you can deploy to the shinyapps.oi cloud.</br>
+          					Required Software: </br>
+          					<ul>
+          						<li>Local Machine OS: <strong>Linux/Windows/Mac OSX</strong></li>
+          						<li>R version: <strong>3.1.1 or later</strong></li>
+          					</ul>
+          					Comments: </br>
+          					<ul>
+          						<li>You would require an account in shinyapps.io cloud server and you can choose from plans (Free, Basic, Standard or Professional) for your need.</li>
+          					</ul>
+          				</p>
+        		</div><!-- /.col-lg-4 -->
+        	</div>
+        	<a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
+        </div>
+      </div>
+      </div>
+	  
 
       <!-- /END THE FEATURETTES -->
 

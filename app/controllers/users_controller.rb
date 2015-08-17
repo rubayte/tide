@@ -45,6 +45,9 @@ class UsersController < ApplicationController
     @tabactive = "plans"
   end
 
+  def techreq
+    @tabactive = "requirements"
+  end
 
   def logout
     session[:user] = nil
@@ -92,6 +95,7 @@ class UsersController < ApplicationController
     if params[:password] == params[:confirmPassword]
       msg = User.changePassword(params)
       if msg == "updated"
+        session[:user] = params[:email]
         redirect_to :home
         return
       else

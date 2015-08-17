@@ -30,8 +30,8 @@
             <li class="<%= 'active' if @tabactive == 'dashboard' %>"><a href="home"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; Dashboard</a></li>
             <li class="<%= 'active' if @tabactive == 'project' %>"><a href="tideproject">TIDE project</a></li>
             <li class="<%= 'active' if @tabactive == 'team' %>"><a href="tideteam">TIDE team</a></li>
-            <li class="<%= 'active' if @tabactive == 'plans' %>"><a href="#tideplans">TIDE plans</a></li>
-            <li class="<%= 'active' if @tabactive == 'requirements' %>"><a href="techreq">Technical requirements</a></li>
+            <li class="<%= 'active' if @tabactive == 'plans' %>"><a href="tideplans">TIDE plans</a></li>
+            <li class="<%= 'active' if @tabactive == 'requirements' %>"><a href="#techreq">Technical requirements</a></li>
           </ul>
           <div class="ft">
 	          	<p align="left">&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %>
@@ -42,7 +42,7 @@
 	          <img  src="assets/nki.png" alt="Generic placeholder image" width="180" height="100">
 	          </br>
 	          </br>
-          </div>          
+          </div>
         </div>
         
 
@@ -67,35 +67,39 @@
           <div class="row">
           	<div class="col-lg-12">
           	<div class="panel panel-primary">
-       			<div class="panel-heading"><h4>TIDE Plans/Pricing</h4></div>
+       			<div class="panel-heading"><h4>Technical Requirements</h4></div>
 				<div class="panel-body">
-        		<div class="col-lg-4">
-          			<img class="img-circle" src="assets/academic.png" alt="Generic placeholder image" width="140" height="140">
-         	 			<h2>Academic</h2>
+        		<div class="col-lg-6">
+         	 			<h2>Deploy TIDE on Shiny R Server</h2>
           				<p>
-          					Academic/Research Institutes</br>
-          					Universities</br>
-          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>2500 per year</br>
+          					Required platform: <strong>Web Server</strong></br>
+          					Required Software: </br>
+          					<ul>
+          						<li>Web Server OS: <strong>Ubuntu 12.04 or later / Fedora 19+ / RedHat 7+ / openSUSE 13.1+</strong> (For installing the Shiny Server binary 64 bit architecture is needed)</li>
+          						<li>R version: <strong>3.1.1 or later</strong></li>
+          					</ul>
+          					Comments: </br>
+          					<ul>
+          						<li>Installing Shiny Server on Amazon linux instances (e.g. EC2 t2 micro) is also possible. But make sure you have a compatible linux OS (e.g. ‘Amazon Linux AMI’).</li>
+          						<li>The required R packages from TIDE and shiny package works with R version 3.0.2 or higher but it is highly recommended to get a version of R 3.1.1 for a smoother deployment of TIDE shiny R package.</li>
+          					</ul>
           				</p>
         		</div><!-- /.col-lg-4 -->
-        		<div class="col-lg-4">
-          			<img class="img-circle" src="assets/sme.png" alt="Generic placeholder image" width="140" height="140">
-         	 			<h2>SME</h2>
+        		<div class="col-lg-6">
+         	 			<h2>Deploy TIDE on <%= link_to "shinyapps.io", "http://www.shinyapps.io/", :target => "_blank" %> Cloud Server</h2>
           				<p>
-          					Small/Medium Organizations</br>
-          					&lt; 100 people </br>
-          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>5000 per year</br>
+          					Required platform: <strong>Any local machine</strong> from where you can deploy to the shinyapps.oi cloud.</br>
+          					Required Software: </br>
+          					<ul>
+          						<li>Local Machine OS: <strong>Linux/Windows/Mac OSX</strong></li>
+          						<li>R version: <strong>3.1.1 or later</strong></li>
+          					</ul>
+          					Comments: </br>
+          					<ul>
+          						<li>You would require an account in shinyapps.io cloud server and you can choose from plans (Free, Basic, Standard or Professional) for your need.</li>
+          					</ul>
           				</p>
-        		</div><!-- /.col-lg-4 -->
-        		<div class="col-lg-4">
-          			<img class="img-circle" src="assets/corporate.png" alt="Generic placeholder image" width="140" height="140">
-         	 			<h2>Corporate</h2>
-          				<p>
-          					Large Corporations</br>
-          					&gt; 100 people</br>
-          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>10000 per year </br>
-          				</p>
-        		</div><!-- /.col-lg-4 -->
+	        	</div><!-- /.col-lg-4 -->
 				</div>
 			  </div>
 			 </div>  	

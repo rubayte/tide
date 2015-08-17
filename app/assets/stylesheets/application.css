@@ -176,12 +176,9 @@ body {
 
 .ft{
   text-align:center;
-  position: fixed;
+  position: inherit;
   bottom: -0px;
-  left: 0px;
-  right:0px;
   padding-top: 5px;
-  background-color: #424242;
 }
 
 

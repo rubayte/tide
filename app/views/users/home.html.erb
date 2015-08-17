@@ -31,7 +31,18 @@
             <li class="<%= 'active' if @tabactive == 'project' %>"><a href="tideproject">TIDE project</a></li>
             <li class="<%= 'active' if @tabactive == 'team' %>"><a href="tideteam">TIDE team</a></li>
             <li class="<%= 'active' if @tabactive == 'plans' %>"><a href="tideplans">TIDE plans</a></li>
+            <li class="<%= 'active' if @tabactive == 'requirements' %>"><a href="techreq">Technical requirements</a></li>
           </ul>
+          <div class="ft">
+	          	<p align="left">&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %>
+    		    	</br>For any query, <a class="btn-link" data-toggle="modal" data-target="#createIssue"><strong>Create a Help Desk ticket!</strong></a>
+    		    	</br><a href="#">Privacy</a> 
+    		    	</br> <a href="#">Terms</a>
+        		</p>
+	          <img  src="assets/nki.png" alt="Generic placeholder image" width="180" height="100">
+	          </br>
+	          </br>
+          </div>
         </div>
         
 
@@ -53,8 +64,12 @@
 		  <%else%>
 		  <%end%>
 
-          <div class="row placeholders">
           	
+		  <div class="panel panel-primary">
+		   <div class="panel-heading"><h4>Dashboard Actions</h4></div>
+		   <div class="panel-body">
+          <div class="row placeholders">
+
 			<div class="col-xs-6 col-sm-3 placeholder">
               <img class="img-circle" src="assets/archive.png" alt="Generic placeholder image" width="140" height="140"></br>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#downloadArchive">Archive of Downloads</button></br>
@@ -81,6 +96,8 @@
             </div>
 
           
+           </div>
+           </div>
           </div>  
 
 

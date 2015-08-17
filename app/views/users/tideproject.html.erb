@@ -31,7 +31,18 @@
             <li class="<%= 'active' if @tabactive == 'project' %>"><a href="#tideproject">TIDE project</a></li>
             <li class="<%= 'active' if @tabactive == 'team' %>"><a href="tideteam">TIDE team</a></li>
             <li class="<%= 'active' if @tabactive == 'plans' %>"><a href="tideplans">TIDE plans</a></li>
+            <li class="<%= 'active' if @tabactive == 'requirements' %>"><a href="techreq">Technical requirements</a></li>
           </ul>
+          <div class="ft">
+	          	<p align="left">&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %>
+    		    	</br>For any query, <a class="btn-link" data-toggle="modal" data-target="#createIssue"><strong>Create a Help Desk ticket!</strong></a>
+    		    	</br><a href="#">Privacy</a> 
+    		    	</br> <a href="#">Terms</a>
+        		</p>
+	          <img  src="assets/nki.png" alt="Generic placeholder image" width="180" height="100">
+	          </br>
+	          </br>
+          </div>          
         </div>
         
 
@@ -55,7 +66,10 @@
 
           <div class="row">
           	<div class="col-lg-12">
-       	   		<p class="lead">
+          		<div class="panel panel-primary">
+          			<div class="panel-heading"><h4>TIDE Project</h4></div>
+  					<div class="panel-body">
+       	   				<p>
 	          	TIDE is a cheap, simple and accurate assay to precisely determine the spectrum and frequency of targeted mutations generated in a pool of cells by genome editing tools 
 	          	such as CRISPR/Cas9, TALENs and ZFNs. TIDE requires only standard molecular biology reagents and involves three simple steps: </br></br>
 	          	1.	One pair of standard PCR reactions.</br>
@@ -64,10 +78,11 @@
 				of indels from the sequence traces. </br></br>
 				The web tool reports the precise identity of the mutations and their frequencies in a few intuitive graphs and tables. 
 				See Brinkman et al, Nucl. Acids Res. (2014) for a detailed explanation and examples.
-            	</p>
-            	</br>
-    	    	<img class="img-rounded" src="assets/tide-project-f1.png" alt="Generic placeholder image" width="600" height="500">
-          
+            			</p>
+            			</br>
+    	    			<img class="img-rounded" src="assets/tide-project-f1.png" alt="Generic placeholder image" width="600" height="500">
+          			</div>
+          		</div>	
           	</div>
           </div>	  
 
@@ -79,3 +94,23 @@
       </div>
     </div>
     
+<!-- create issue -->
+<div class="modal fade" id="createIssue" tabindex="-1" role="dialog" aria-labelledby="mci">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="mci">Crate a Help Desk Tikcet
+      <div class="modal-body">
+	    <%= form_tag(:controller => 'users', :action => 'createTicket') do %>
+			<%= text_area_tag :ticket , nil, :placeholder => "Ticket description", :class => "form-control" %></br> 
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       	<%= submit_tag "Submit", :class => 'btn btn-primary' %>
+		<% end -%>
+    </div>
+  </div>
+</div>
+</div>
+</div>
