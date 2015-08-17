@@ -29,7 +29,8 @@ class UsersController < ApplicationController
     @downloads = Files.getFilesByLocation("cur_downloads")
     @downloadsArchive = Files.getFilesByLocation("downloads")
     @tabactive = "dashboard"
-    @previousactions = []
+    @userdetails = User.getUserDetailsByEmail(session[:user])
+    (@tickets,@num_rows) = Tickets.getTicketsByUser(session[:user])
   end
   
   def tideproject
@@ -53,6 +54,29 @@ class UsersController < ApplicationController
   
   def updatePass
     @remail = params[:refemail]    
+  end
+  
+  def createTicket
+    
+    msg = nil
+    if params[:ticket] == "" or params[:ticket] == nil
+      redirect_to :controller => "users", :action => "home"
+      flash[:notice] = "all fields must be completed!"
+      flash[:color]= "invalid"
+      return  
+    end
+    msg = Tickets.createNewTicket(params,session[:user])
+    if msg == "created"
+      redirect_to :controller => "users", :action => "home"
+      flash[:notice] = "Your ticket has been created!"
+      flash[:color]= "valid"
+      return
+    else
+      redirect_to :controller => "users", :action => "home"
+      flash[:notice] = "Something went wrong. Try again!"
+      flash[:color]= "invalid"
+      return
+    end
   end
   
   def confirmNewPassword
@@ -82,6 +106,22 @@ class UsersController < ApplicationController
       flash[:color]= "invalid"
       return
     end  
+  end
+  
+  def updateUserDetails
+    
+    msg = nil
+    msg = User.updateUserDetails(params)
+    if msg == "updated"
+      redirect_to :home
+      flash[:notice] = "Your information has been updated!"
+      flash[:color]  = "valid"
+    else
+      redirect_to :home
+      flash[:notice] = "Someting went wrong. Try again!"
+      flash[:color]  = "invalid"  
+    end
+    
   end
   
   def download

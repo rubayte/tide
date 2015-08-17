@@ -58,14 +58,14 @@
 			<div class="col-xs-6 col-sm-3 placeholder">
               <img class="img-circle" src="assets/archive.png" alt="Generic placeholder image" width="140" height="140"></br>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#downloadArchive">Archive of Downloads</button></br>
-              <span class="text-muted">View all previous TIDE shiny R package versions</span>
+              <span class="text-muted">View all TIDE shiny R packages</span>
             </div>
 
           	
             <div class="col-xs-6 col-sm-3 placeholder">
               <img class="img-circle" src="assets/profile.png" alt="Generic placeholder image" width="140" height="140"></br>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profile">User Account</button></br>
-              <span class="text-muted">Modify your user account information</span>
+              <span class="text-muted">View/Modify your user account information</span>
             </div>
             
             <div class="col-xs-6 col-sm-3 placeholder">
@@ -179,7 +179,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="mci">Crate a Help Desk Tikcet
       <div class="modal-body">
-	    <%= form_tag(:controller => 'users', :action => 'requestPackage') do %>
+	    <%= form_tag(:controller => 'users', :action => 'createTicket') do %>
 			<%= text_area_tag :ticket , nil, :placeholder => "Ticket description", :class => "form-control" %></br> 
     </div>
     <div class="modal-footer">
@@ -202,10 +202,14 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="mup">Update User Account Details
       <div class="modal-body">
-	    <%= form_tag(:controller => 'users', :action => 'requestPackage') do %>
-   		    <%= text_field_tag :name , nil, :placeholder => "full name", :class => "form-control" %></br>
-			<%= text_field_tag :institution , nil, :placeholder => "institution", :class => "form-control" %></br>
-			<%= text_area_tag :address , nil, :placeholder => "address", :class => "form-control" %></br>
+	    <%= form_tag(:controller => 'users', :action => 'updateUserDetails') do %>
+	    	<%= hidden_field_tag :usermail, @userdetails['email'] %>
+	    	Email: &nbsp; <strong><%= @userdetails['email'] %></strong></br>
+   		    Name: &nbsp; <%= text_field_tag :name , @userdetails['name'], :class => "form-control" %></br>
+			Organization: &nbsp; <%= text_field_tag :institution , @userdetails['org'], :class => "form-control" %></br>
+			Organization Address: </br> <%= text_area_tag :institutionAddress , @userdetails['orgadd'], :class => "form-control" %></br>
+			Contact Number: &nbsp; <%= text_field_tag :contact , @userdetails['contact'], :class => "form-control" %></br>
+			Organization Website: &nbsp; <%= text_area_tag :weburl ,@userdetails['web'] , :class => "form-control" %></br>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -225,7 +229,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="mor">Your submitted requets &amp; tickets
       <div class="modal-body">
-      			<% if @previousactions.length == 0 -%>
+      			<% if @num_rows == 0 -%>
       				<div class="alert alert-warning" role="alert">
       					<div align="center">Nothing previous requests or tickets found!</div>
       				</div>	
@@ -234,22 +238,20 @@
       			<table class="table table-hover">
       			<thead>
       				<tr>
-      					<th>Id</th>
       					<th>Details</th>
       					<th>Date added</th>
       					<th>Date last edit</th>
       					<th>Status</th>
-      					<th>Actions</th>
       				</tr>
     	  		<thead>
 	      		<tbody>
 
-			      	<% @previousactions.each do |items| -%>
+			      	<% @tickets.each do |items| -%>
+			      		<tr>
 			      		<% items.each do |item| -%>
- 		 				<tr>
  		 					<td><%= item %></td>
-						</tr>
 						<% end %>
+						</tr>
 					<% end %>
 				</tbody>
 				</table>

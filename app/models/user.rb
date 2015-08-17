@@ -6,6 +6,48 @@ class User
     return con
   end
   
+  ## get user detials by mail
+  def self.getUserDetailsByEmail(user)
+    
+    details = Hash.new
+    con = User.new.self
+    
+    ## get user details
+    queryUser = "select userEmail,userFullName,userOrganization,userOrganizationAddress,userContactNumber,userOrganizationUrl from users  where userEmail = '" + user + "'"
+    refqueryUser = con.query(queryUser)
+    refqueryUser.each do |mail,name,org,orgadd,contact,web|
+      details['email'] = mail
+      details['name'] = name
+      details['org'] = org
+      details['orgadd'] = orgadd
+      details['contact'] = contact
+      details['web'] = web
+    end  
+    
+    con.close()
+    
+    return details
+    
+  end
+  
+  ## update user details by email
+  def self.updateUserDetails(params)
+    
+    msg = nil
+    con = User.new.self
+    
+    ## prepare update query part
+    updateStr = "userFullName = '" + params[:name]+ "', userOrganization = '" + params[:institution]+ "',userOrganizationAddress = '" + 
+    params[:institutionAddress]+ "',userContactNumber = '" + params[:contact]+ "', userOrganizationUrl = '" + params[:weburl]+ "', lastEditAt = NOW()"
+    ## update user details 
+    updateDetails = "update users set " + updateStr + " where userEmail = '" + params[:usermail] + "'"
+    refupdateDetails = con.query(updateDetails)
+    msg = "updated"
+        
+    return msg
+    
+  end
+  
   ## validate user
   def self.getAuthentication(params)
     
