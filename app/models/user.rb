@@ -85,7 +85,7 @@ class User
           msg = "valid"
         end
       else
-        msg = passnewtomatch
+        msg = "invalid"
       end      
     else
       msg = "invalid"  

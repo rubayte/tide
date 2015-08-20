@@ -35,11 +35,16 @@
  <div class="container marketing">
  	
       	
-      	<h2>Sorry!</h2>
-        <p>You can not login at this moment. Please try again later. If this is happening frequently, then 
-        	<%= mail_to "Research-IT@nki.nl", '<strong>contact</strong>'.html_safe %> us!</p>
+      <h2>
+      	<% if @header == "order" -%>
+      		Thank you!
+      	<% else -%>
+      		Sorry!
+      	<% end -%>
+      </h2>
+      <p><%= @msg %></p>
         
-        <p>Back to <%= link_to "main page", "index" %>!</p>
+      <p>Back to <%= link_to "main page", "index" %>!</p>
    
 	  <hr class="featurette-divider">
 

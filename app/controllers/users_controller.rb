@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   
+  before_filter :authenticate_user, :only => [:home,:tideproject,:tideteam,:tideplans, :techreq, :logout, :updatePass, :createTicket, :updateUserDetails, :download, :view ]
+  
   def autheticateUser
     
     msg = nil
@@ -16,10 +18,11 @@ class UsersController < ApplicationController
       redirect_to :home
       return
     elsif msg == "update_pass"
+      session[:user] = params[:email]
       redirect_to :controller => "users", :action => "updatePass", :refemail => params[:email]
       return
     else
-      redirect_to :controller => "app", :action => "messageUserLogin"
+      redirect_to :controller => "app", :action => "messageUserLogin", :token => "user"
       return
     end 
   
@@ -87,6 +90,7 @@ class UsersController < ApplicationController
     msg = nil
     
     if params[:password] == "" or params[:password] == nil or params[:confirmPassword] == "" or params[:confirmPassword] == nil
+      session[:user] = params[:usermail]
       redirect_to :controller => "users", :action => "updatePass", :refemail => params[:usermail]
       flash[:notice] = "all fields must be completed!"
       flash[:color]= "invalid"
@@ -95,17 +99,19 @@ class UsersController < ApplicationController
     if params[:password] == params[:confirmPassword]
       msg = User.changePassword(params)
       if msg == "updated"
-        session[:user] = params[:email]
+        session[:user] = params[:usermail]
         redirect_to :home
         return
       else
-        redirect_to :updatePass, :email => params[:email]
+        session[:user] = params[:usermail]
+        redirect_to :controller => "users", :action => "updatePass", :refemail => params[:usermail]
         flash[:notice] = "something went wrong. try again!"
         flash[:color]= "invalid"
         return  
       end
     else
-      redirect_to :updatePass, :email => params[:email]
+      session[:user] = params[:usermail]
+      redirect_to :controller => "users", :action => "updatePass", :refemail => params[:usermail]
       flash[:notice] = "passwords dont match. try again!"
       flash[:color]= "invalid"
       return
