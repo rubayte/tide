@@ -6,6 +6,7 @@ Tide::Application.routes.draw do
   root :to => 'app#index'
   match "index", :to => 'app#index'
   match "order", :to => 'app#order'
+  match "messageUserLogin", :to => 'app#messageUserLogin'
   match "home", :to => 'users#home'
   match 'tideproject', :to => 'users#tideproject'
   match 'tideteam', :to => 'users#tideteam'
@@ -13,6 +14,7 @@ Tide::Application.routes.draw do
   match 'techreq', :to => 'users#techreq'
   match "updatePass", :to => 'users#updatePass'
   match "logout", :to => 'users#logout'
+  
   
 
   # Sample of regular route:

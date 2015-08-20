@@ -56,16 +56,26 @@ class User
     dbpass = nil
     dbsalt = nil
     updatePass= nil
+    isAuthorized = nil
     
     ## validate user email and pass
-    validateUser = "select userPass,userPassSalt,`updatePass?` from users where userEmail = '" + params[:email]+ "'"
+    validateUser = "select userPass,userPassSalt,`updatePass?`,`isAuthorized?` from users where userEmail = '" + params[:email]+ "'"
     refvalidateUser = con.query(validateUser)
     if refvalidateUser.num_rows > 0
-      refvalidateUser.each do |r1,r2,r3|
+      refvalidateUser.each do |r1,r2,r3,r4|
         dbpass = r1
         dbsalt = r2
         updatePass = r3
+        isAuthorized = r4
       end
+    else
+      msg = "invalid"
+      return msg
+    end
+    con.close()
+
+    ## if user is authorized then move forward with password check or return invalid
+    if (isAuthorized == '1')
       ## lets add salt to login password to match with the one in database
       passnewtomatch = BCrypt::Engine.hash_secret(params[:password],dbsalt)    
       if (passnewtomatch == dbpass)
@@ -76,12 +86,10 @@ class User
         end
       else
         msg = passnewtomatch
-      end
+      end      
     else
-      msg = "invalid"
+      msg = "invalid"  
     end
-    
-    con.close()
     
     return msg 
     

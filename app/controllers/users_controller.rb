@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       redirect_to :controller => "users", :action => "updatePass", :refemail => params[:email]
       return
     else
-      redirect_to :controller => "app", :action => "index"
+      redirect_to :controller => "app", :action => "messageUserLogin"
       return
     end 
   

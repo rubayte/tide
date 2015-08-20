@@ -24,7 +24,7 @@ class AppController < ApplicationController
     
   end
   
-  def message
+  def messageUserLogin
     
   end
   
