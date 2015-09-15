@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">TIDE</a>
+          <a class="navbar-brand" href="index">TIDE</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
@@ -16,10 +16,13 @@
                   <ul class="dropdown-menu">
                   	<li><a href="home"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; Dashboard</a></li>
                   	<li role="separator" class="divider"></li>
+                  	<li><%= link_to 'TIDE Shiny R webtool'.html_safe, "http://tide.nki.nl", :target => "_blank"%></li>
+                  	<!--
                   	<li><a href="tideproject">TIDE project</a></li>
                   	<li><a href="tideteam">TIDE team</a></li>
                   	<li><a href="tideplans">TIDE plans</a></li>
                   	<li><a href="techreq">Technical requirements</a></li>
+                  	-->
                   </ul>
             </li>
           </ul>
@@ -43,16 +46,16 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="<%= 'active' if @tabactive == 'dashboard' %>"><a href="#dashboard"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; Dashboard</a></li>
+            <!--
             <li class="<%= 'active' if @tabactive == 'project' %>"><a href="tideproject">TIDE project</a></li>
             <li class="<%= 'active' if @tabactive == 'team' %>"><a href="tideteam">TIDE team</a></li>
             <li class="<%= 'active' if @tabactive == 'plans' %>"><a href="tideplans">TIDE plans</a></li>
             <li class="<%= 'active' if @tabactive == 'requirements' %>"><a href="techreq">Technical requirements</a></li>
+            -->
           </ul>
           <div class="ft">
 	          	<p align="left">&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %>
-    		    	</br>For any query, <a class="btn-link" data-toggle="modal" data-target="#createIssue"><strong>Create a Help Desk ticket!</strong></a>
-    		    	</br><a href="#">Privacy</a> 
-    		    	</br> <a href="#">Terms</a>
+    		    	</br>For any query, <a class="btn-link" data-toggle="modal" data-target="#createIssue"><strong>Create</strong></a> a Help Desk ticket!
         		</p>
 	          <img  src="assets/nki.png" alt="Generic placeholder image" width="180" height="100">
 	          </br>
@@ -78,46 +81,9 @@
 				</div>
 		  <%else%>
 		  <%end%>
-
-          	
-		  <div class="panel panel-primary">
-		   <div class="panel-heading"><h4>Dashboard Actions</h4></div>
-		   <div class="panel-body">
-          <div class="row placeholders">
-
-			<div class="col-xs-6 col-sm-3 placeholder">
-              <img class="img-circle" src="assets/archive.png" alt="Generic placeholder image" width="140" height="140"></br>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#downloadArchive">Archive of Downloads</button></br>
-              <span class="text-muted">View all TIDE shiny R packages</span>
-            </div>
-
-          	
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img class="img-circle" src="assets/profile.png" alt="Generic placeholder image" width="140" height="140"></br>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profile">User Account</button></br>
-              <span class="text-muted">View/Modify your user account information</span>
-            </div>
-            
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img class="img-circle" src="assets/support.png" alt="Generic placeholder image" width="140" height="140"></br>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createIssue">Help Desk</button></br>
-              <span class="text-muted">Create a help desk ticket for any question or issue</span>
-            </div>
-            
-   			<div class="col-xs-6 col-sm-3 placeholder">
-              <img class="img-circle" src="assets/oldrequest.png" alt="Generic placeholder image" width="140" height="140"></br>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#oldRequests">Show Requests &amp; Tickets </button></br>
-              <span class="text-muted">View your previous requets &amp; tickets</span>
-            </div>
-
-          
-           </div>
-           </div>
-          </div>  
-
-
-		  <div class="panel panel-success">
-		   <div class="panel-heading"><h4>Download latet version of TIDE Shiny R Package</h4></div>
+		  
+		  <div class="panel panel-default">
+		   <div class="panel-heading"><h4>Download the latest version of TIDE Shiny R Package</h4></div>
 		   <div class="panel-body">
           <% if @downloads.length == 0 -%>
           	<div align="center">
@@ -157,12 +123,49 @@
           <div class="alert alert-info alert-dismissible" role="alert">
   			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   			<div align="center">
-	  			<a class="btn-link" data-toggle="modal" data-target="#downloadArchive"><strong>Heads up!</strong> You can select a specific version of your choice, in the archive of downloads section.</a>
+	  			<a class="btn-link" data-toggle="modal" data-target="#downloadArchive"><strong>Note: You can select a specific version of your choice, in the downloads section below.</strong></a>
 			</div>
 		  </div>
     	  <% end -%>
 		  </div>
-          </div>        
+          </div>
+
+          	
+		  <div class="panel panel-default">
+		   <div class="panel-heading"><h4>Archive of downloads, user account and tickets</h4></div>
+		   <div class="panel-body">
+          <div class="row placeholders">
+
+			<div class="col-xs-6 col-sm-3 placeholder">
+              <img class="img-circle" src="assets/archive.png" alt="Generic placeholder image" width="140" height="140"></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#downloadArchive">Downloads</button></br>
+              <span class="text-muted">View &amp; download TIDE shiny R packages</span>
+            </div>
+
+          	
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img class="img-circle" src="assets/profile.png" alt="Generic placeholder image" width="140" height="140"></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profile">User Account</button></br>
+              <span class="text-muted">View/Modify your user account information</span>
+            </div>
+            
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img class="img-circle" src="assets/support.png" alt="Generic placeholder image" width="140" height="140"></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createIssue">Help Desk</button></br>
+              <span class="text-muted">Create a help desk ticket for any question or issue</span>
+            </div>
+            
+   			<div class="col-xs-6 col-sm-3 placeholder">
+              <img class="img-circle" src="assets/oldrequest.png" alt="Generic placeholder image" width="140" height="140"></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#oldRequests">Show Submitted Tickets </button></br>
+              <span class="text-muted">View your previous requests &amp; tickets</span>
+            </div>
+
+          
+           </div>
+           </div>
+          </div>  
+        
           
           </div>        
 	
@@ -304,7 +307,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="mda">Archive of downloads
+        <h4 class="modal-title" id="mda">Downloads
       <div class="modal-body">
       	<div class="table-responsive">
 	      	<table class="table table-hover">

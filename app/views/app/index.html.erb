@@ -22,7 +22,17 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-          	<li class="dropdown">
+          	<% if session[:user] -%>
+   	          	<li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <%= session[:user] %> <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+					<li><a href="logout"><span title="Logout">Logout </span></a></li>
+                    <li role="separator" class="divider"></li>
+		            <li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>
+                  </ul>
+            	</li>
+          	<% else -%>
+	          	<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My TIDE packages<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                   	<li>
@@ -37,7 +47,8 @@
                     <li role="separator" class="divider"></li>
 		            <li><a href="#"><span title="Help">Help</a></li>
                   </ul>
-            </li>
+            	</li>
+            <% end -%>
           	<!-- 
           	<li>
           	<div class="navbar-form navbar-right">
