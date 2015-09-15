@@ -11,11 +11,34 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
-          	<li><a href="#team">TIDE team</a></li>
-          	<li><a href="#plan">Plans/Pricing</a></li>
-          	<li><a href="#requirements">Technical requirements</a></li>
-          </ul>	
+          	<li><%= link_to 'TIDE Shiny R webtool'.html_safe, "http://tide.nki.nl", :target => "_blank"%></li>
+          	<li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TIDE software package<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                  	<li><a href="#local">Why you need TIDE local installation?</a></li>
+					<li><a href="#plan">Plans/Pricing for TIDE softwarew package</a></li>
+                    <li><a href="#requirements">Technical requirements for TIDE local installation</a></li>
+                  </ul>
+            </li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
+          	<li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My TIDE packages<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                  	<li>
+			          	<div class="navbar-form">
+							<%= form_tag(:controller => 'users', :action => 'autheticateUser') do %>
+								<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %> &nbsp;
+								<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> &nbsp; </br> 
+								<%= submit_tag "Login", :class => 'btn btn-primary btn-medium' %>
+						<% end -%>
+						</div>	
+                  	</li>
+                    <li role="separator" class="divider"></li>
+		            <li><a href="#"><span title="Help">Help</a></li>
+                  </ul>
+            </li>
+          	<!-- 
           	<li>
           	<div class="navbar-form navbar-right">
 			<%= form_tag(:controller => 'users', :action => 'autheticateUser') do %>
@@ -25,7 +48,7 @@
 			<% end -%>
 			</div>	
 			</li>
-            <li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span></a></li>
+            <li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span></a></li> -->
           </ul>
         </div>
       </div>
@@ -35,14 +58,13 @@
 
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="assets/tide3.png" alt="First slide">
+          
           <div class="container">
             <div class="carousel-caption">
               <h1>TIDE: Tracking of Indels by DEcomposition</h1>
               <p>Easy quantitative assessment of genome editing</p>
               <div align="center">
-              	<%= link_to '<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> &nbsp; Open TIDE shiny R App'.html_safe, "http://tide.nki.nl", :target => "_blank", :class => "btn btn-lg btn-primary" %>
-	  			<a class="btn btn-lg btn-primary" href="order" role="button"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span> &nbsp; Order TIDE shiny R package</a>
+	  						
       		  </div>
             </div>
           </div>
@@ -55,6 +77,33 @@
 
       <!-- START THE FEATURETTES -->
 
+      <div class="row featurette">
+        <div class="col-md-2">
+        </div>	
+        <div class="col-md-3">
+        	<div align="center">
+        		<img class="img-circle" src="assets/community.png" alt="Generic placeholder image" width="140" height="140"></br>
+        		<%= link_to 'Access TIDE open source</br> Shiny R webtool'.html_safe, "http://tide.nki.nl", :target => "_blank", :class => "btn btn-lg btn-primary" %>
+				</br>
+              	<span class="text-muted" align="justify">Free to use tool that reports the precise identity of the mutations and their frequencies resulted by targeted mutagenesis of a pool of cells.</span>
+			</div>
+        </div>
+        <div class="col-md-2">
+        </div>	
+        <div class="col-md-3">
+			<div align="center">
+				<img class="img-circle" src="assets/installation.png" alt="Generic placeholder image" width="140" height="140"></br>
+				<a class="btn btn-lg btn-primary" href="order" role="button">TIDE software package </br>for local installation</a>
+				</br>
+				<span class="text-muted" align="justify">Request information for licensed ready to use TIDE shiny R package for local installation &amp; deployment for academic, small / medium and corporate organizations.</span>
+			</div>	
+        </div>
+        <div class="col-md-2">
+        </div>	
+	
+      </div>
+
+	<hr class="featurette-divider">
 
       <div class="row featurette">
         <div class="col-md-7">
@@ -67,7 +116,7 @@
 				3.	Analysis of the two resulting raw sequencing files using a dedicated sequence trace decomposition shiny R web tool. The algorithm accurately reconstructs the spectrum 
 				of indels from the sequence traces. </br></br>
 				The web tool reports the precise identity of the mutations and their frequencies in a few intuitive graphs and tables. 
-				See Brinkman et al, Nucl. Acids Res. (2014) for a detailed explanation and examples.
+				See <%= link_to "Brinkman et al, Nucl. Acids Res. (2014)", "http://nar.oxfordjournals.org/content/42/22/e168", :target => "_blank" %> for a detailed explanation and examples.
                </p>
                <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
         	</div>
@@ -81,57 +130,54 @@
 
       <div class="row featurette">
         <div class="col-md-12">
-        	<div id="team">
-        	  <h2 class="featurette-heading">TIDE <span class="text-muted">team</span></h2>
+        	<div id="local">
+        	  <h2 class="featurette-heading">Running TIDE locally can provide you with</h2>
         	  </br>
         	  </br>
         	   <div class="row">
         		<div class="col-lg-4">
-          			<img class="img-circle" src="assets/bas.jpg" alt="Generic placeholder image" width="140" height="140">
-         	 			<h2>Bas van Steensel</h2>
-          				<p>
-          					<strong>Group leader, Gene Regulation</strong></br>
-          					<%= link_to '<span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; NKI website'.html_safe, "http://www.nki.nl/divisions/gene-regulation/van-steensel-b-group/" , :target => "_blank" %>
-          					</br>
-							<%= link_to '<span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; Personal website'.html_safe, "http://research.nki.nl/vansteensellab/index.htm" , :target => "_blank" %>
-							</br>
-          					<%= mail_to "b.v.steensel@nki.nl", '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp; Bas van Steensel'.html_safe %>
-          					</br>
+          			<img class="img-rounded" src="assets/data-security.png" alt="Generic placeholder image" width="140" height="140">
+        		</div><!-- /.col-lg-4 -->
+        		<div class="col-lg-8">
+          				<p class="lead">
+          					<strong>Data Security </strong></br>
+          					Although we do not store or analyze any uploaded data to the open source TIDE Shiny R webtool from users, you may prefer to keep your confidential sequence files local. 
           				</p>
-        		</div><!-- /.col-lg-4 -->
+        		</div><!-- /.col-lg-6 -->
+        	  </div>
+        	  </br></br>
+        	  <div class="row">
         		<div class="col-lg-4">
-          			<img class="img-circle" src="assets/tao.jpg" alt="Generic placeholder image" width="140" height="140">
-         	 			<h2>Tao Chen</h2>
-          				<p>
-          					<strong>PostDoc, Gene Regulation</strong></br>
-           					<%= link_to '<span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; NKI website'.html_safe, "http://www.nki.nl/divisions/gene-regulation/van-steensel-b-group/" , :target => "_blank" %>
-          					</br>
-							<%= link_to '<span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; Personal website'.html_safe, "http://research.nki.nl/vansteensellab/index.htm" , :target => "_blank" %>
-							</br>
-          					<%= mail_to "t.chen@nki.nl", '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp; Tao Chen'.html_safe %>
-          					</br>
-         				</p>
+          			<img class="img-rounded" src="assets/connection-issues.png" alt="Generic placeholder image" width="140" height="140">
         		</div><!-- /.col-lg-4 -->
-        		<div class="col-lg-4">
-          			<img class="img-circle" src="assets/eva.jpg" alt="Generic placeholder image" width="140" height="140">
-         	 			<h2>Eva Brinkman</h2>
-          				<p>
-          					<strong>PostDoc, Gene Regulation</strong></br>
-           					<%= link_to '<span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; NKI website'.html_safe, "http://www.nki.nl/divisions/gene-regulation/van-steensel-b-group/" , :target => "_blank" %>
-          					</br>
-							<%= link_to '<span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; Personal website'.html_safe, "http://research.nki.nl/vansteensellab/index.htm" , :target => "_blank" %>
-							</br>
-          					<%= mail_to "e.brinkman@nki.nl", '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp; Eva Brinkman'.html_safe %>
-          					</br>
+        		<div class="col-lg-8">
+          				<p class="lead">
+          					<strong>No Firewwall/Connection Issues </strong></br>
+          					A local installation of TIDE to your servers / private cloud overcomes access problems related to firewall issues. 
           				</p>
+        		</div><!-- /.col-lg-6 -->
+        	  </div>
+          	  </br></br>
+        	  <div class="row">
+        		<div class="col-lg-4">
+          			<img class="img-rounded" src="assets/tech-support.png" alt="Generic placeholder image" width="140" height="140">
         		</div><!-- /.col-lg-4 -->
-               <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
-        	 </div>
-        	</div>
-      	</div>
+        		<div class="col-lg-8">
+          				<p class="lead">
+          					<strong>Technical Support </strong></br>
+          					Ready to yse TIDE soft package also comes with one year technical support for your convenience. 
+          				</p>
+        		</div><!-- /.col-lg-6 -->
+        	  </div>
+        	  <div>
+        	  	<p>Have a look at  differnet TIDE <a href="#plan">plans/pricing</a> for your institute / organization and also at the <a href="#requirements">technical requirements</a> for local installation.</p>
+        	  </div>	
+              <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
+        </div>
+      </div>
       </div>
 
-      <hr class="featurette-divider">
+	  <hr class="featurette-divider">
 
       <div class="row featurette">
         <div class="col-md-12">
@@ -146,16 +192,16 @@
           				<p>
           					Academic/Research Institutes</br>
           					Universities</br>
-          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>2500 per year</br>
+          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>2500</br>
           				</p>
         		</div><!-- /.col-lg-4 -->
         		<div class="col-lg-4">
           			<img class="img-circle" src="assets/sme.png" alt="Generic placeholder image" width="140" height="140">
          	 			<h2>SME</h2>
           				<p>
-          					Small/Medium Organizations</br>
+          					Small/Medium Enterprises</br>
           					&lt; 100 people </br>
-          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>5000 per year</br>
+          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>5000</br>
           				</p>
         		</div><!-- /.col-lg-4 -->
         		<div class="col-lg-4">
@@ -164,7 +210,7 @@
           				<p>
           					Large Corporations</br>
           					&gt; 100 people</br>
-          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>10000 per year </br>
+          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>10000</br>
           				</p>
         		</div><!-- /.col-lg-4 -->
                <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
@@ -218,8 +264,46 @@
         </div>
       </div>
       </div>
+      
+      <!-- 
+      <hr class="featurette-divider">
 	  
-
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<div id="team">
+        	  <h2 class="featurette-heading">TIDE <span class="text-muted">team</span></h2>
+        	  </br>
+        	  </br>
+        	   <div class="row">
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/bas.jpg" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Bas van Steensel</h2>
+          				<p>
+          					<strong>Group leader, Gene Regulation</strong></br>
+          				</p>
+        		</div>
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/eva.jpg" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Eva Brinkman</h2>
+          				<p>
+          					<strong>PretDoc, Gene Regulation</strong></br>
+          				</p>
+        		</div>
+        		<div class="col-lg-4">
+          			<img class="img-circle" src="assets/tao.jpg" alt="Generic placeholder image" width="140" height="140">
+         	 			<h2>Tao Chen</h2>
+          				<p>
+          					<strong>PreDoc, Gene Regulation</strong></br>
+           					
+         				</p>
+        		</div>
+               <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
+        	 </div>
+        	</div>
+      	</div>
+      </div>
+	  -->
+		
       <!-- /END THE FEATURETTES -->
 
 	  <hr class="featurette-divider">
@@ -231,8 +315,6 @@
 	      	<div class="col-lg-4">
     		    <p align="left">&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %>
     		    </br>For any query, <%= mail_to "Research-IT@nki.nl", '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp; NKI Research-IT'.html_safe %>
-    		    </br><a href="#">Privacy</a> 
-    		    </br> <a href="#">Terms</a>
         		</p>
         	</div>
         	<div class="col-lg-4">
