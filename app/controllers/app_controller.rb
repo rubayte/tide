@@ -5,7 +5,10 @@ class AppController < ApplicationController
   end 
 
   def order
-        
+    @selectedPlan = "Select a plan"
+    if params[:selectedPlan] != nil or params[:selectedPlan] != ""
+      @selectedPlan = params[:selectedPlan]
+    end    
   end
   
   def orderAction

@@ -95,7 +95,7 @@
         		</div>
         		<div>
           				<p align="justify">
-          					<strong>No Firewwall/Connection Issues </strong></br>
+          					<strong>No Firewall/Connection Issues </strong></br>
           					A local installation of TIDE to your servers / private cloud overcomes access problems related to firewall issues. 
           				</p>
         		</div><!-- /.col-lg-6 -->
@@ -108,7 +108,8 @@
         		<div>
           				<p align="justify">
           					<strong>Technical Support </strong></br>
-          					Ready to yse TIDE soft package also comes with one year technical support for your convenience. 
+          					Ready to use TIDE software package also comes with one year technical support for your convenience.
+          					Continued support and free updates of new TIDE versions after the initial one year term can be secured against an annual fee that is 15% of the initial license fee. 
           				</p>
         		</div><!-- /.col-lg-6 -->
         	  </div>
@@ -124,7 +125,12 @@
           							<li>Academic/Research Institutes</li>
           							<li>Universities</li>
           							<li><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>2500</li>
+          							<li>Download of all versions of TIDE for one year</li>
+          							<li>Technical Support for one year</li>
           						</ul>
+          						</p>
+          						<p class="text-muted">
+          							Continued support and free updates of new TIDE versions after the initial one year term can be secured against an annual fee that is 15% of the initial license fee.
           						</p>
   							</div>
 						</div>
@@ -141,7 +147,12 @@
 									<li>Small/Medium Enterprises</li>
           							<li>&lt; 100 people </li>
           							<li><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>5000</li>
+          							<li>Download of all versions of TIDE for one year</li>
+          							<li>Technical Support for one year</li>
           						</ul>
+          						</p>
+          						<p class="text-muted">
+          							Continued support and free updates of new TIDE versions after the initial one year term can be secured against an annual fee that is 15% of the initial license fee.
           						</p>
   							</div>
 						</div>
@@ -158,7 +169,12 @@
 									<li>Large Corporations</li>
           							<li>&gt; 100 people</li>
           							<li><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>10000</li>
+          							<li>Download of all versions of TIDE for one year</li>
+          							<li>Technical Support for one year</li>
           						</ul>
+          						</p>
+          						<p class="text-muted">
+          							Continued support and free updates of new TIDE versions after the initial one year term can be secured against an annual fee that is 15% of the initial license fee.
           						</p>
   							</div>
 						</div>
@@ -229,7 +245,7 @@
 		
 
    	    <%= form_tag(:controller => 'app', :action => 'orderAction') do %>
-		   	<%= select_tag :chosenPlan, options_for_select([ 'Select a plan', 'Academic', 'SME', 'Corporate' ], "Select a plan"), :class => "form-control" %></br>
+		   	<%= select_tag :chosenPlan, options_for_select([ 'Select a plan', 'Academic', 'SME', 'Corporate' ], @selectedPlan), :class => "form-control" %></br>
 		   	<%= text_field_tag :name , nil, :placeholder => "Full name", :class => "form-control" %></br>
    		    <%= text_field_tag :email , nil, :placeholder => "Email", :class => "form-control" %></br>
    		    <%= text_field_tag :organization , nil, :placeholder => "Company / Institute / University name", :class => "form-control" %></br>

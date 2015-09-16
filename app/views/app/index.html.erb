@@ -183,7 +183,7 @@
         		</div><!-- /.col-lg-4 -->
         		<div class="col-lg-8">
           				<p class="lead">
-          					<strong>No Firewwall/Connection Issues </strong></br>
+          					<strong>No Firewall/Connection Issues </strong></br>
           					A local installation of TIDE to your servers / private cloud overcomes access problems related to firewall issues. 
           				</p>
         		</div><!-- /.col-lg-6 -->
@@ -196,7 +196,8 @@
         		<div class="col-lg-8">
           				<p class="lead">
           					<strong>Technical Support </strong></br>
-          					Ready to yse TIDE soft package also comes with one year technical support for your convenience. 
+          					Ready to use TIDE software package also comes with one year technical support for your convenience.
+          					Continued support and free updates of new TIDE versions after the initial one year term can be secured against an annual fee that is 15% of the initial license fee. 
           				</p>
         		</div><!-- /.col-lg-6 -->
         	  </div>
@@ -219,6 +220,13 @@
         	  <h2 class="featurette-heading">TIDE <span class="text-muted">plans</span></h2>
         	  </br>
         	  </br>
+        	  <div class="row">
+        	  	<p class="lead">
+        	  		All TIDE plans allow you to download all currently available versions of the software package with technical support for one year.
+        	  		Continued support and free updates of new TIDE versions after the initial one year term can be secured against an annual fee that is 15% of the initial license fee.
+        	  		Select a plan according to your institute/organization below!
+        	  	</p>	  
+        	  </div>	
         	   <div class="row">
         		<div class="col-lg-4">
           			<img class="img-circle" src="assets/academic.png" alt="Generic placeholder image" width="140" height="140">
@@ -228,6 +236,12 @@
           					Universities</br>
           					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>2500</br>
           				</p>
+          				<p>
+          					<%= form_tag(:controller => 'app', :action => 'order') do %>
+		   						<%= hidden_field_tag :selectedPlan, 'Academic' %>
+				       			<%= submit_tag "Select", :class => 'btn btn-primary' %>
+							<% end -%>
+          				</p>	
         		</div><!-- /.col-lg-4 -->
         		<div class="col-lg-4">
           			<img class="img-circle" src="assets/sme.png" alt="Generic placeholder image" width="140" height="140">
@@ -237,6 +251,12 @@
           					&lt; 100 people </br>
           					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>5000</br>
           				</p>
+          				<p>
+          					<%= form_tag(:controller => 'app', :action => 'order') do %>
+		   						<%= hidden_field_tag :selectedPlan, 'SME' %>
+				       			<%= submit_tag "Select", :class => 'btn btn-primary' %>
+							<% end -%>
+          				</p>
         		</div><!-- /.col-lg-4 -->
         		<div class="col-lg-4">
           			<img class="img-circle" src="assets/corporate.png" alt="Generic placeholder image" width="140" height="140">
@@ -245,6 +265,12 @@
           					Large Corporations</br>
           					&gt; 100 people</br>
           					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>10000</br>
+          				</p>
+          				<p>
+          					<%= form_tag(:controller => 'app', :action => 'order') do %>
+		   						<%= hidden_field_tag :selectedPlan, 'Corporate' %>
+				       			<%= submit_tag "Select", :class => 'btn btn-primary' %>
+							<% end -%>
           				</p>
         		</div><!-- /.col-lg-4 -->
                <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
