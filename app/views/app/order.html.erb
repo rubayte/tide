@@ -15,9 +15,12 @@
           	<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TIDE software package<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                  	<li><a href="#local">Why you need TIDE local installation?</a></li>
-					<li><a href="#plan">Plans/Pricing for TIDE softwarew package</a></li>
+                  	<li><a href="index#project">TIDE: Tracking of indels by decomposition</a><li>
+                  	<li><a href="#local">Benefits of TIDE local installation</a></li>
+					<li><a href="#plan">Plans/Pricing for TIDE software package</a></li>
                     <li><a href="#requirements">Technical requirements for TIDE local installation</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Request information for TIDE software package</a></li>
                   </ul>
             </li>
           </ul>
@@ -26,9 +29,10 @@
           		<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <%= session[:user] %> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-					<li><a href="logout"><span title="Logout">Logout </span></a></li>
+					<li><a href="home"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; Dashboard</a></li>
+					<li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>
                     <li role="separator" class="divider"></li>
-		            <li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>
+   					<li><a href="logout"><span title="Logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp; Logout </span></a></li>   					
                   </ul>
             	</li>
           	<% else -%>
@@ -75,49 +79,50 @@
     <div class="row featurette">
           <div class="col-md-6">
         	<div id="local">
-        	  <h2>Running TIDE locally can provide you with</h2>
+        	  <h2>Benefits of TIDE local installation</h2>
         	  </br>
         	   <div class="row">
         		<div class="col-lg-2">
-          			<img class="img-rounded" src="assets/data-security.png" alt="Generic placeholder image" width="80" height="80">
-        		</div>
-        		<div>
-          				<p align="justify">
-          					<strong>Data Security </strong></br>
-          					Although we do not store or analyze any uploaded data to the open source TIDE Shiny R webtool from users, you may prefer to keep your confidential sequence files local. 
-          				</p>
-        		</div><!-- /.col-lg-6 -->
-        	  </div>
-        	  </br>
-        	  <div class="row">
+          			<a class='datasecurity' data-toggle="popover" data-trigger="focus" data-placement='above' title="Data Security" href='#'><span title="Data Security"><img class="img-rounded" src="assets/data-security.png" alt="Generic placeholder image" width="80" height="80"></span></a>
+						<div id="popover_content_wrapper_data_security" style="display: none">
+  							<div>
+          						<p align="justify">
+          							Although we do not store or analyze any uploaded data to the open source TIDE Shiny R webtool from users, you may prefer to keep your confidential sequence files local. 
+          						</p>
+  							</div>
+						</div>
+						
+        		</div><!-- /.col-lg-2 -->
         		<div class="col-lg-2">
-          			<img class="img-rounded" src="assets/connection-issues.png" alt="Generic placeholder image" width="80" height="80">
         		</div>
-        		<div>
-          				<p align="justify">
-          					<strong>No Firewall/Connection Issues </strong></br>
-          					A local installation of TIDE to your servers / private cloud overcomes access problems related to firewall issues. 
-          				</p>
-        		</div><!-- /.col-lg-6 -->
-        	  </div>
-          	  </br>
-        	  <div class="row">
         		<div class="col-lg-2">
-          			<img class="img-rounded" src="assets/tech-support.png" alt="Generic placeholder image" width="80" height="80">
+          			<a class='firewall' data-toggle="popover" data-trigger="focus" data-placement='above' title="No Firewall/Connection Issues" href='#'><span title="No Firewall/Connection Issues"><img class="img-rounded" src="assets/connection-issues.png" alt="Generic placeholder image" width="80" height="80"></span></a>
+						<div id="popover_content_wrapper_firewall" style="display: none">
+  							<div>
+          						<p align="justify">
+          							A local installation of TIDE to your servers / private cloud overcomes access problems related to firewall issues. 
+          						</p>
+  							</div>
+						</div>
+        		</div><!-- /.col-lg-2 -->
+        		<div class="col-lg-2">
         		</div>
-        		<div>
-          				<p align="justify">
-          					<strong>Technical Support </strong></br>
-          					Ready to use TIDE software package also comes with one year technical support for your convenience.
-          					Continued support and free updates of new TIDE versions after the initial one year term can be secured against an annual fee that is 15% of the initial license fee. 
-          				</p>
-        		</div><!-- /.col-lg-6 -->
-        	  </div>
+        		<div class="col-lg-2">
+          			<a class='techsupport' data-toggle="popover" data-trigger="focus" data-placement='above' title="Technical Support" href='#'><span title="Technical Support"><img class="img-rounded" src="assets/tech-support.png" alt="Generic placeholder image" width="80" height="80"></span></a>
+						<div id="popover_content_wrapper_techsupport" style="display: none">
+  							<div>
+          						<p align="justify">
+          							Ready to use TIDE software package also comes with one year technical support for your convenience.
+		          					Continued support and free updates of new TIDE versions after the initial one year term can be secured against an annual fee that is 15% of the initial license fee. 
+          						</p>
+  							</div>
+						</div>
+        		</div><!-- /.col-lg-2 -->
+        	  </div>         
           	  <div class="row">
           	  	<h2>TIDE plans/pricing</h2>
-        		<div class="col-lg-2">
-          			<img class="img-circle" src="assets/academic.png" alt="Generic placeholder image" width="100" height="100">
-          			<a class='plan-academic' data-toggle="popover" data-trigger="focus" data-placement='above' title="Academic" href='#'>Academic</a>
+        		<div class="col-lg-2">          			
+          			<a class='plan-academic' data-toggle="popover" data-trigger="focus" data-placement='above' title="Academic" href='#'><span title="Academic"><img class="img-circle" src="assets/academic.png" alt="Generic placeholder image" width="100" height="100"></span></a>
 						<div id="popover_content_wrapper_academic" style="display: none">
   							<div>
           						<p>
@@ -138,8 +143,7 @@
         		<div class="col-lg-2">
         		</div>
         		<div class="col-lg-2">
-          			<img class="img-circle" src="assets/sme.png" alt="Generic placeholder image" width="100" height="100">
-          			<a class='plan-sme' data-toggle="popover" data-trigger="focus" data-placement='above' title="SME" href='#'>SME</a>
+          			<a class='plan-sme' data-toggle="popover" data-trigger="focus" data-placement='above' title="SME" href='#'><span title="Small Medium Enterprises"><img class="img-circle" src="assets/sme.png" alt="Generic placeholder image" width="100" height="100"></span></a>
 						<div id="popover_content_wrapper_sme" style="display: none">
   							<div>
           						<p>
@@ -159,9 +163,8 @@
         		</div>
         		<div class="col-lg-2">
         		</div>
-        		<div class="col-lg-2">
-          			<img class="img-circle" src="assets/corporate.png" alt="Generic placeholder image" width="100" height="100">
-          			<a class='plan-corporate' data-toggle="popover" data-trigger="focus" data-placement='above' title="Corporate" href='#'>Corporate</a>
+        		<div class="col-lg-2">          			
+          			<a class='plan-corporate' data-toggle="popover" data-trigger="focus" data-placement='above' title="Corporate" href='#'><span title="Corporate"><img class="img-circle" src="assets/corporate.png" alt="Generic placeholder image" width="100" height="100"></span></a>
 						<div id="popover_content_wrapper_corporate" style="display: none">
   							<div>
           						<p>
@@ -229,7 +232,7 @@
       </div>
       <div class="col-md-6">
       	<div class="reqInfo">
-      	<h2>Run TIDE locally</br> Request information for software package</h2>
+      	<h2>Request information for TIDE software package to run locally!</h2>
         <p><i>**all fields are mandatory</i></p>
         
    	    <% if flash[:color]== "valid" %>
@@ -327,6 +330,41 @@
   </div>
 </div>
 </div>
+
+
+<script>
+$(document).ready(function(){
+  $('.datasecurity').popover({ 
+    html : true,
+    content: function() {
+      return $('#popover_content_wrapper_data_security').html();
+    }
+  });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $('.firewall').popover({ 
+    html : true,
+    content: function() {
+      return $('#popover_content_wrapper_firewall').html();
+    }
+  });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $('.techsupport').popover({ 
+    html : true,
+    content: function() {
+      return $('#popover_content_wrapper_techsupport').html();
+    }
+  });
+});
+</script>
+
 
 <script>
 $(document).ready(function(){

@@ -15,9 +15,12 @@
           	<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TIDE software package<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                  	<li><a href="#local">Why you need TIDE local installation?</a></li>
-					<li><a href="#plan">Plans/Pricing for TIDE softwarew package</a></li>
+                  	<li><a href="#project">TIDE: Tracking of indels by decomposition</a><li>
+                  	<li><a href="#local">Benefits of TIDE local installation</a></li>
+					<li><a href="#plan">Plans/Pricing for TIDE software package</a></li>
                     <li><a href="#requirements">Technical requirements for TIDE local installation</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="order">Request information for TIDE software package</a></li>
                   </ul>
             </li>
           </ul>
@@ -26,9 +29,10 @@
    	          	<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <%= session[:user] %> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-					<li><a href="logout"><span title="Logout">Logout </span></a></li>
+                  	<li><a href="home"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; Dashboard</a></li>
+					<li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>
                     <li role="separator" class="divider"></li>
-		            <li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>
+   					<li><a href="logout"><span title="Logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp; Logout </span></a></li>
                   </ul>
             	</li>
           	<% else -%>
@@ -72,10 +76,10 @@
           <img class="first-slide" src="assets/background.gif" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1><span style="color:#151515">TIDE</span>: <span style="color:#151515">T</span>racking of <span style="color:#151515">I</span>ndels by <span style="color:#151515">DE</span>composition</h1>
+              <h1 class="featurette-heading"><span style="color:#151515">TIDE: Tracking of Indels by DEcomposition</span></h1>
               <p>Easy quantitative assessment of genome editing</p>
               <p align="justify">TIDE is a cheap, simple and accurate assay to precisely determine the spectrum and frequency of targeted mutations generated in a pool of cells by genome editing tools 
-	          	such as CRISPR/Cas9, TALENs and ZFNs. TIDE requires <a class="btn btn-primary" href="#project" role="button">more &raquo;</a></p> 
+	          	such as CRISPR/Cas9, TALENs and ZFNs. <a class="btn btn-primary" href="#project" role="button">more &raquo;</a></p> 
 	          
             </div>
           </div>
@@ -127,12 +131,13 @@
 	  <hr class="featurette-divider">
 
       <div class="row featurette">
-        <div class="col-md-7">        	
-        	<div id="project">
-        		</br>
-        		</br>
-        		</br>
-          	   <p class="lead">
+      	<div class="col-md-12">
+      		<div id="project">
+      		</br>
+      		<h2 class="featurette-heading">TIDE &nbsp; <span class="text-muted">tracking of indels by decomposition</span></h2>
+	        <div class="row">
+	        <div class="col-md-7">        	
+          	   	<p class="lead">
 	          	TIDE is a cheap, simple and accurate assay to precisely determine the spectrum and frequency of targeted mutations generated in a pool of cells by genome editing tools 
 	          	such as CRISPR/Cas9, TALENs and ZFNs. TIDE requires only standard molecular biology reagents and involves three simple steps: </br></br>
 	          	1.	One pair of standard PCR reactions.</br>
@@ -141,16 +146,15 @@
 				of indels from the sequence traces. </br></br>
 				The web tool reports the precise identity of the mutations and their frequencies in a few intuitive graphs and tables. 
 				See <%= link_to "Brinkman et al, Nucl. Acids Res. (2014)", "http://nar.oxfordjournals.org/content/42/22/e168", :target => "_blank" %> for a detailed explanation and examples.
-               </p>
-               <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
+               	</p>
+               	<a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
         	</div>
-        </div>
-        <div class="col-md-5">
-        	</br>
-        	</br>
-        	</br>
-        	<img class="img-rounded" src="assets/tide-project-f1.png" alt="Generic placeholder image" width="600" height="500">
-        </div>	
+        	<div class="col-md-5">
+        		<img class="img-rounded" src="assets/tide-project-f1.png" alt="Generic placeholder image" width="600" height="500">
+        	</div>
+        	</div>
+        	</div>
+        </div>		
       </div>
       
 
@@ -160,9 +164,7 @@
         <div class="col-md-12">
         	<div id="local">
         	 </br>
-        	 </br>
-        	 </br>
-        	  <h2 class="featurette-heading">Running TIDE locally can provide you with</h2>
+        	  <h2 class="featurette-heading">Benefits of TIDE local installation</h2>
         	  </br>
         	  </br>
         	   <div class="row">
@@ -201,9 +203,6 @@
           				</p>
         		</div><!-- /.col-lg-6 -->
         	  </div>
-        	  <div>
-        	  	<p>Have a look at  differnet TIDE <a href="#plan">plans/pricing</a> for your institute / organization and also at the <a href="#requirements">technical requirements</a> for local installation.</p>
-        	  </div>	
               <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
         </div>
       </div>
@@ -214,8 +213,6 @@
       <div class="row featurette">
         <div class="col-md-12">
         	<div id="plan">
-        	  </br>
-        	  </br>
         	  </br>	
         	  <h2 class="featurette-heading">TIDE <span class="text-muted">plans</span></h2>
         	  </br>
@@ -284,8 +281,6 @@
       <div class="row featurette">
         <div class="col-md-12">
         	<div id="requirements">
-        	  </br>
-        	  </br>
         	  </br>
         	  <h2 class="featurette-heading">Technical <span class="text-muted">requirements</span></h2>
         	  </br>

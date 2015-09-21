@@ -181,6 +181,12 @@ body {
   padding-top: 5px;
 }
 
+.ftdash{
+  position: absolute;
+  bottom:0px;
+  padding-bottom: 5px;
+}
+
 
 .reqInfo{
   padding-right: 10px;

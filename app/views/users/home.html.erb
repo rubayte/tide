@@ -14,7 +14,7 @@
           	<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> &nbsp; Home <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                  	<li><a href="home"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; Dashboard</a></li>
+                  	<li><a href="#"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; Dashboard</a></li>
                   	<li role="separator" class="divider"></li>
                   	<li><%= link_to 'TIDE Shiny R webtool'.html_safe, "http://tide.nki.nl", :target => "_blank"%></li>
                   	<!--
@@ -30,9 +30,9 @@
           	<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <%= session[:user] %> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-					<li><a href="logout"><span title="Logout">Logout </span></a></li>
-                    <li role="separator" class="divider"></li>
 		            <li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>
+                    <li role="separator" class="divider"></li>
+					<li><a href="logout"><span title="Logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp; Logout </span></a></li>
                   </ul>
             </li>
           </ul>
@@ -53,13 +53,11 @@
             <li class="<%= 'active' if @tabactive == 'requirements' %>"><a href="techreq">Technical requirements</a></li>
             -->
           </ul>
-          <div class="ft">
-	          	<p align="left">&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %>
+          <div class="ftdash">
+	          	<p>&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %>
     		    	</br>For any query, <a class="btn-link" data-toggle="modal" data-target="#createIssue"><strong>Create</strong></a> a Help Desk ticket!
         		</p>
 	          <img  src="assets/nki.png" alt="Generic placeholder image" width="180" height="100">
-	          </br>
-	          </br>
           </div>
         </div>
         
