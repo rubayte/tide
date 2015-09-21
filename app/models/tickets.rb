@@ -14,9 +14,9 @@ class Tickets
     refcreateTicket = con.query(createTicket)
     msg = "created"
     ## create the same ticket in atlassian jira
-    data = "{\\\"fields\\\":{\\\"project\\\":{\\\"key\\\":\\\"SUP\\\"},\\\"summary\\\":\\\"tide-#{user}\\\",\\\"description\\\":\\\"#{params[:ticket]}\\\",\\\"issuetype\\\":{\\\"name\\\":\\\"Task\\\"},\\\"customfield_10004\\\":2}}"
-    issuecreateCmd = "curl -D- -u user:pass -X POST --data \"#{data}\" -H \"Content-Type: application/json\" https://nki-research-it.atlassian.net/rest/api/latest/issue/"
-    system(issuecreateCmd)
+    #data = "{\\\"fields\\\":{\\\"project\\\":{\\\"key\\\":\\\"SUP\\\"},\\\"summary\\\":\\\"tide-#{user}\\\",\\\"description\\\":\\\"#{params[:ticket]}\\\",\\\"issuetype\\\":{\\\"name\\\":\\\"Task\\\"},\\\"customfield_10004\\\":2}}"
+    #issuecreateCmd = "curl -D- -u user:pass -X POST --data \"#{data}\" -H \"Content-Type: application/json\" https://nki-research-it.atlassian.net/rest/api/latest/issue/"
+    #system(issuecreateCmd)
     msg = "created"
     con.close()
     

@@ -10,6 +10,7 @@
           <a class="navbar-brand" href="index">TIDE</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+          <!--
           <ul class="nav navbar-nav navbar-left">
           	<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> &nbsp; Home <span class="caret"></span></a>
@@ -17,15 +18,16 @@
                   	<li><a href="#"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; Dashboard</a></li>
                   	<li role="separator" class="divider"></li>
                   	<li><%= link_to 'TIDE Shiny R webtool'.html_safe, "http://tide.nki.nl", :target => "_blank"%></li>
-                  	<!--
+                  	
                   	<li><a href="tideproject">TIDE project</a></li>
                   	<li><a href="tideteam">TIDE team</a></li>
                   	<li><a href="tideplans">TIDE plans</a></li>
                   	<li><a href="techreq">Technical requirements</a></li>
-                  	-->
+                  	
                   </ul>
             </li>
           </ul>
+          -->
           <ul class="nav navbar-nav navbar-right">
           	<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <%= session[:user] %> <span class="caret"></span></a>
@@ -121,7 +123,7 @@
           <div class="alert alert-info alert-dismissible" role="alert">
   			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   			<div align="center">
-	  			<a class="btn-link" data-toggle="modal" data-target="#downloadArchive"><strong>Note: You can select a specific version of your choice, in the downloads section below.</strong></a>
+	  			<a class="btn-link" data-toggle="modal" data-target="#downloadArchive"><strong>Note: You can select previous TIDE versions here!</strong></a>
 			</div>
 		  </div>
     	  <% end -%>
@@ -134,31 +136,31 @@
 		   <div class="panel-body">
           <div class="row placeholders">
 
-			<div class="col-xs-6 col-sm-3 placeholder">
+			<div class="col-xs-6 col-sm-4 placeholder">
               <img class="img-circle" src="assets/archive.png" alt="Generic placeholder image" width="140" height="140"></br>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#downloadArchive">Downloads</button></br>
               <span class="text-muted">View &amp; download TIDE shiny R packages</span>
             </div>
 
           	
-            <div class="col-xs-6 col-sm-3 placeholder">
+            <div class="col-xs-6 col-sm-4 placeholder">
               <img class="img-circle" src="assets/profile.png" alt="Generic placeholder image" width="140" height="140"></br>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profile">User Account</button></br>
               <span class="text-muted">View/Modify your user account information</span>
             </div>
             
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img class="img-circle" src="assets/support.png" alt="Generic placeholder image" width="140" height="140"></br>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createIssue">Help Desk</button></br>
-              <span class="text-muted">Create a help desk ticket for any question or issue</span>
+            <div class="col-xs-6 col-sm-4 placeholder">
+              <img class="img-circle" src="assets/tech-support.png" alt="Generic placeholder image" width="140" height="140"></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#helpDesk">Help Desk</button></br>
+              <span class="text-muted">Create &amp; view old help desk tickets for any question or issue</span>
             </div>
-            
+            <!--
    			<div class="col-xs-6 col-sm-3 placeholder">
               <img class="img-circle" src="assets/oldrequest.png" alt="Generic placeholder image" width="140" height="140"></br>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#oldRequests">Show Submitted Tickets </button></br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#oldRequests">Show Old Tickets </button></br>
               <span class="text-muted">View your previous requests &amp; tickets</span>
             </div>
-
+			-->
           
            </div>
            </div>
@@ -337,6 +339,61 @@
       		</tbody>			
 			</table>
 		</div>	
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- new help desk -->
+<div class="modal fade bs-example-modal-lg" id="helpDesk" tabindex="-1" role="dialog" aria-labelledby="mhd">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="mhd">Help Desk
+      <div class="modal-body">
+      			<h3>Create New Ticket</h3>
+      			 <%= form_tag(:controller => 'users', :action => 'createTicket') do %>
+					<%= text_area_tag :ticket , nil, :placeholder => "Ticket description", :class => "form-control" %></br> 
+       				<%= submit_tag "Submit", :class => 'btn btn-primary' %>
+				<% end -%>
+      			
+      			<hr>
+      			
+      			<h3>Your submitted Ticket(s)</h3>
+      			
+      			<% if @num_rows == 0 -%>
+      				<div class="alert alert-warning" role="alert">
+      					<div align="center">Nothing previous requests or tickets found!</div>
+      				</div>	
+      			<% else -%>
+      			<div class="table-responsive">
+      			<table class="table table-hover">
+      			<thead>
+      				<tr>
+      					<th>Details</th>
+      					<th>Date added</th>
+      					<th>Date last edit</th>
+      					<th>Status</th>
+      				</tr>
+    	  		<thead>
+	      		<tbody>
+
+			      	<% @tickets.each do |items| -%>
+			      		<tr>
+			      		<% items.each do |item| -%>
+ 		 					<td><%= item %></td>
+						<% end %>
+						</tr>
+					<% end %>
+				</tbody>
+				</table>
+				</div>	
+				<% end -%>		
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -41,8 +41,9 @@ body {
 
 /* Carousel base class */
 .carousel {
-  height: 450px;
-  margin-bottom: 60px;
+	height:50vh;
+  /*height: 450px;
+  margin-bottom: 60px;*/
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -61,6 +62,7 @@ body {
   min-width: 100%;
   height: 400px;
 }
+
 .carousel-caption-p{
   align: left; 
   color: #000000;
@@ -173,6 +175,17 @@ body {
     padding-left: 40px;
   }
 }
+
+.gitem12 {
+  height: 50vh;
+  padding: 2em;
+}
+
+.gitem {
+  height: 60vh;
+  padding: 2em;
+}
+
 
 .ft{
   text-align:center;
