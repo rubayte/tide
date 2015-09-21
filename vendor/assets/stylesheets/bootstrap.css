@@ -5910,17 +5910,18 @@ button.close {
   border: 0;
 }
 .modal-open {
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 .modal {
-  position: fixed;
+  /*position: fixed;*/
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 1050;
   display: none;
-  overflow: hidden;
+/*overflow: hidden;*/
   -webkit-overflow-scrolling: touch;
   outline: 0;
 }
@@ -5941,7 +5942,8 @@ button.close {
 }
 .modal-open .modal {
   overflow-x: hidden;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
+ overflow-y: scroll;
 }
 .modal-dialog {
   position: relative;

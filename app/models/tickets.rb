@@ -26,13 +26,25 @@ class Tickets
   
   def self.getTicketsByUser(user)
     
+    tickets = []
+    
     con = Tickets.new.self
     ## get all tickets from this user
     queryTickets = "select ticket, createdAt, lastEditAt, status from `user_created_tickets` where user = '" + user + "'"
     refqueryTickets = con.query(queryTickets)
     con.close()
     
-    return refqueryTickets, refqueryTickets.num_rows
+    if refqueryTickets.num_rows > 0
+      refqueryTickets.each do |items|
+        temp = []
+        items.each do |item|
+          temp.push(item)
+        end  
+        tickets.push(temp)
+      end  
+    end
+    
+    return tickets, refqueryTickets.num_rows
     
   end  
       
