@@ -53,23 +53,12 @@
                   </ul>
             	</li>
             <% end -%>
-          	<!-- 
-          	<li>
-          	<div class="navbar-form navbar-right">
-			<%= form_tag(:controller => 'users', :action => 'autheticateUser') do %>
-				<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %> &nbsp;
-				<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> &nbsp; 
-			<%= submit_tag "Login", :class => 'btn btn-primary btn-medium' %>
-			<% end -%>
-			</div>	
-			</li>
-            <li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span></a></li> -->
           </ul>
         </div>
       </div>
 </nav>
 	
-	
+
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner" role="listbox">      	
         <div class="item active">
@@ -78,52 +67,47 @@
             <div class="carousel-caption">
               <h1 class="featurette-heading"><span style="color:#151515">TIDE: Tracking of Indels by DEcomposition</span></h1>
               <p>Easy quantitative assessment of genome editing</p>
-              <p align="justify">TIDE is a cheap, simple and accurate assay to precisely determine the spectrum and frequency of targeted mutations generated in a pool of cells by genome editing tools 
-	          	such as CRISPR/Cas9, TALENs and ZFNs. <a class="btn btn-primary" href="#project" role="button">more &raquo;</a></p> 
+              <p align="justify">TIDE is a cheap, simple and accurate assay to precisely determine the spectrum and frequency of targeted mutations generated in a pool of cells by  genome CRISPR/Cas9
+              	genome editing tools. <a class="btn btn-primary" href="#project" role="button">more &raquo;</a></p> 
 	          
             </div>
           </div>
           </div>
        </div>
     </div>
-   
+
     <div class="container marketing">
 
       <!-- START THE FEATURETTES -->
-
-      <div class="row featurette">
-      <div class="gitem12">
-        <div class="col-md-2">
-        </div>	
-        <div class="col-md-3">
-        	<div align="center">
-        		<img class="img-circle" src="assets/community.png" alt="Generic placeholder image" width="140" height="140"></br>
-        		<%= link_to 'Access TIDE open source</br> Shiny R webtool'.html_safe, "http://tide.nki.nl", :target => "_blank", :class => "btn btn-lg btn-primary" %>
-				</br>
-              	<span class="text-muted" align="justify">Free to use tool that reports the precise identity of the mutations and their frequencies resulted by targeted mutagenesis of a pool of cells.</span>
-			</div>
-        </div>
-        <div class="col-md-2">
-        </div>	
-        <div class="col-md-3">
-			<div align="center">
-				<img class="img-circle" src="assets/installation.png" alt="Generic placeholder image" width="140" height="140"></br>
-				<a class="btn btn-lg btn-primary" href="order" role="button">TIDE software package </br>for local installation</a>
-				</br>
-				<span class="text-muted" align="justify">Request information for licensed ready to use TIDE shiny R package for local installation &amp; deployment for academic, small / medium and corporate organizations.</span>
-			</div>	
-        </div>
-        <div class="col-md-2">
-        </div>
-      </div>
-      </div>
+			<div class="row featurette">
+        		<div class="col-md-2">
+        		</div>	
+        		<div class="col-md-3">
+        			<div align="center">
+        				<img class="img-circle" src="assets/community.png" alt="Generic placeholder image" width="140" height="140"></br>
+        				<%= link_to 'Access TIDE free webtool'.html_safe, "http://tide.nki.nl", :target => "_blank", :class => "btn btn-lg btn-primary" %>
+						</br>
+              			<span class="text-muted" align="justify">Free to use tool that reports the precise identity of the mutations and their frequencies resulting from targeted mutagenesis of a pool of cells.</span>
+					</div>
+       	 		</div>
+        		<div class="col-md-2">
+        		</div>	
+        		<div class="col-md-3">
+					<div align="center">
+						<img class="img-circle" src="assets/installation.png" alt="Generic placeholder image" width="140" height="140"></br>
+						<a class="btn btn-lg btn-primary" href="order" role="button">TIDE software package </br>for local installation</a>
+						</br>
+						<span class="text-muted" align="justify">Request information for licensed ready to use TIDE shiny R package for local installation &amp; deployment for academic, small / medium and corporate organizations.</span>
+					</div>	
+        		</div>
+        		<div class="col-md-2">
+        		</div>
+      		</div>
 
 
 
       <div class="row featurette">
-      		<div class="gitem">
       	<div class="col-md-12">
-
       		<div id="project">
       		</br>
       		<h2 class="featurette-heading">TIDE &nbsp; <span class="text-muted">tracking of indels by decomposition</span></h2>
@@ -134,7 +118,7 @@
 	          	such as CRISPR/Cas9, TALENs and ZFNs. TIDE requires only standard molecular biology reagents and involves three simple steps: </br></br>
 	          	1.	One pair of standard PCR reactions.</br>
 				2.	One pair of standard capillary ("Sanger") sequencing reactions.</br>
-				3.	Analysis of the two resulting raw sequencing files using a dedicated sequence trace decomposition shiny R web tool. The algorithm accurately reconstructs the spectrum 
+				3.	Analysis of the two resulting raw sequencing files using a dedicated web tool. The algorithm accurately reconstructs the spectrum 
 				of indels from the sequence traces. </br></br>
 				The web tool reports the precise identity of the mutations and their frequencies in a few intuitive graphs and tables. 
 				See <%= link_to "Brinkman et al, Nucl. Acids Res. (2014)", "http://nar.oxfordjournals.org/content/42/22/e168", :target => "_blank" %> for a detailed explanation and examples.
@@ -142,21 +126,17 @@
                	<a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
         	</div>
         	<div class="col-md-5">
-        		<img class="img-rounded" src="assets/tide-project-f1.png" alt="Generic placeholder image" width="600" height="500">
+        		<img class="img-rounded" src="assets/tide-project-f1.png" alt="Generic placeholder image" width="500" height="500">
         	</div>
         	</div>
         	</div>
-        	</div>
-        </div>		
+        </div>
       </div>
-      
 
 
 
       <div class="row featurette">
-      		<div class="gitem">
         <div class="col-md-12">
-
         	<div id="local">
         	</br>
         	  <h2 class="featurette-heading">Benefits of TIDE local installation</h2>
@@ -167,7 +147,7 @@
         		<div class="col-lg-8">
           				<p class="lead">
           					<strong>Data Security </strong></br>
-          					Although we do not store or analyze any uploaded data to the open source TIDE Shiny R webtool from users, you may prefer to keep your confidential sequence files local. 
+          					Although the TIDE web tool does not store or analyze any uploaded data, you may prefer to keep your confidential sequence files local. 
           				</p>
         		</div><!-- /.col-lg-6 -->
         	  </div>
@@ -179,7 +159,7 @@
         		<div class="col-lg-8">
           				<p class="lead">
           					<strong>No Firewall/Connection Issues </strong></br>
-          					A local installation of TIDE to your servers / private cloud overcomes access problems related to firewall issues. 
+          					Local installation of TIDE on your own servers / private cloud overcomes access problems related to firewall issues. 
           				</p>
         		</div><!-- /.col-lg-6 -->
         	  </div>
@@ -191,22 +171,18 @@
         		<div class="col-lg-8">
           				<p class="lead">
           					<strong>Technical Support </strong></br>
-          					Ready to use TIDE software package also comes with one year technical support for your convenience.
+          					Ready to use TIDE software package also comes with one year technical support.
           					Continued support and free updates of new TIDE versions after the initial one year term can be secured against an annual fee that is 15% of the initial license fee. 
           				</p>
         		</div><!-- /.col-lg-6 -->
         	  </div>
               <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
         </div>
-        </div>
       </div>
       </div>
-
 
       <div class="row featurette">
-       		<div class="gitem">
         <div class="col-md-12">
-
         	<div id="plan">
         	  </br>	
         	  <h2 class="featurette-heading">TIDE <span class="text-muted">plans</span></h2>
@@ -268,10 +244,8 @@
                <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
         	</div>
         </div>
-        </div>
       </div>
       </div>
-
 
 	  
       <div class="row featurette">
@@ -380,3 +354,4 @@
       </footer>
 
     </div><!-- /.container -->
+    

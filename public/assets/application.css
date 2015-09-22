@@ -20,6 +20,7 @@
 
 
 
+
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
@@ -42,9 +43,8 @@ body {
 
 /* Carousel base class */
 .carousel {
-	height:50vh;
-  /*height: 450px;
-  margin-bottom: 60px;*/
+  height: 500px;
+  /*margin-bottom: 60px;*/
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -53,21 +53,24 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 400px;
-  background-color: #000000;
+  height: 450px;
+  background-color: #FFFFFF;
 }
 .carousel-inner > .item > img {
   position: absolute;
   top: 0;
   left: 0;
   min-width: 100%;
-  height: 400px;
+  height: 450px;
 }
 
 .carousel-caption-p{
   align: left; 
-  color: #000000;
+  color: #FFFFFF;
 }
+
+
+
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -175,16 +178,6 @@ body {
     padding-right: 40px;
     padding-left: 40px;
   }
-}
-
-.gitem12 {
-  height: 50vh;
-  padding: 2em;
-}
-
-.gitem {
-  height: 60vh;
-  padding: 2em;
 }
 
 
