@@ -27,6 +27,22 @@ class AppController < ApplicationController
     
   end
   
+  def reqInfoAction
+    
+    msg = nil
+    msg = Tickets.createAnonymousTicket(params)
+    if msg == "created"
+      redirect_to :controller => "app", :action => "messageUserLogin", :token => "reqInfo"
+      return
+    else
+      redirect_to :order
+      flash[:notice] = "try again!"
+      flash[:color]= "invalid"
+      return  
+    end
+  end
+  
+  
   def messageUserLogin
     @msg = nil
     @header = params[:token]
@@ -34,8 +50,8 @@ class AppController < ApplicationController
       @msg = "You need to login to view this page."
     elsif params[:token] == "user"
       @msg= "You can not login at this moment. Please try again later."
-    elsif params[:token] == "order"
-      @msg = "Your details have been recorded. Check your email for further details!"
+    elsif params[:token] == "order" or params[:token] == "reqInfo"
+      @msg = "Your request has been recorded. Check your email for further details!"
     else
       @msg= "You can not login at this moment. Please try again later."
     end
