@@ -12,7 +12,8 @@ end
 module Tide
   class Application < Rails::Application
     
-    config.assets.paths << "#{Rails}/vendor/assets/fonts"
+    #config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
+    #config.assets.precompile += %w( .svg .eot .woff .woff2 .ttf )
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

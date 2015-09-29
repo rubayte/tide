@@ -1,357 +1,452 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">TIDE</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-left">
-          	<li><%= link_to 'TIDE Shiny R webtool'.html_safe, "http://tide.nki.nl", :target => "_blank"%></li>
-          	<li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TIDE software package<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                  	<li><a href="#project">TIDE: Tracking of indels by decomposition</a><li>
-                  	<li><a href="#local">Benefits of TIDE local installation</a></li>
-					<li><a href="#plan">Plans/Pricing for TIDE software package</a></li>
-                    <li><a href="#requirements">Technical requirements for TIDE local installation</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="order">Order / request information for TIDE software package</a></li>
-                  </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-          	<% if session[:user] -%>
-   	          	<li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <%= session[:user] %> <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                  	<li><a href="home"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; Dashboard</a></li>
-					<li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>
-                    <li role="separator" class="divider"></li>
-   					<li><a href="logout"><span title="Logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp; Logout </span></a></li>
-                  </ul>
-            	</li>
-          	<% else -%>
-	          	<li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My TIDE packages<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                  	<li>
-			          	<div class="navbar-form">
-							<%= form_tag(:controller => 'users', :action => 'autheticateUser') do %>
-								<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %> &nbsp;
-								<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> &nbsp; </br> 
-								<%= submit_tag "Login", :class => 'btn btn-primary btn-medium' %>
-						<% end -%>
-						</div>	
-                  	</li>
-                    <li role="separator" class="divider"></li>
-		            <li><a href="#"><span title="Help">Help</a></li>
-                  </ul>
-            	</li>
-            <% end -%>
-          </ul>
-        </div>
-      </div>
-</nav>
-	
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner" role="listbox">      	
-        <div class="item active">
-          <img class="first-slide" src="assets/background.gif" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1 class="featurette-heading"><span style="color:#151515">TIDE: Tracking of Indels by DEcomposition</span></h1>
-              <p>Easy quantitative assessment of genome editing</p>
-              <p align="justify">TIDE is a cheap, simple and accurate assay to precisely determine the spectrum and frequency of targeted mutations generated in a pool of cells by  genome CRISPR/Cas9
-              	genome editing tools. <a class="btn btn-primary" href="#project" role="button">more &raquo;</a></p> 
-	          
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">TIDE</a>
             </div>
-          </div>
-          </div>
-       </div>
-    </div>
 
-    <div class="container marketing">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
 
-      <!-- START THE FEATURETTES -->
-			<div class="row featurette">
-        		<div class="col-md-2">
-        		</div>	
-        		<div class="col-md-3">
-        			<div align="center">
-        				<img class="img-circle" src="assets/community.png" alt="Generic placeholder image" width="140" height="140"></br>
-        				<%= link_to 'TIDE free webtool'.html_safe, "http://tide.nki.nl", :target => "_blank", :class => "btn btn-lg btn-primary" %>
-						</br>
-              			<span class="text-muted" align="justify">Free to use tool that reports the precise identity of the mutations and their frequencies resulting from targeted mutagenesis of a pool of cells.</span>
+                    <li class="dropdown">
+                  		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Getting Started<span class="caret"></span></a>
+                  		<ul class="dropdown-menu">
+                  			<li><a href="#gettingstarted">Getting started!</a><li>
+                  			<li><a href="#request">Request TIDE</a><li>
+                    		<li><a href="#requirements">Technical requirements</a></li>
+                  		</ul>
+            		</li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    <li> <a href="#">| </a></li>
+                    <% if session[:user] -%>
+   	          		<li class="dropdown">
+                	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <%= session[:user] %> <span class="caret"></span></a>
+                	  <ul class="dropdown-menu">
+                	  	<li><a href="home"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; Dashboard</a></li>
+						<li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>
+                	    <li role="separator" class="divider"></li>
+   						<li><a href="logout"><span title="Logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp; Logout </span></a></li>
+                	  </ul>
+            		</li>
+          			<% else -%>
+	          		<li class="dropdown">
+                	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My TIDE packages<span class="caret"></span></a>
+                	  <ul class="dropdown-menu">
+                	  	<li>
+			    	      	<div class="navbar-form">
+								<%= form_tag(:controller => 'users', :action => 'autheticateUser') do %>
+									<%= text_field_tag :email , nil, :placeholder => "email", :class => "form-control" %> &nbsp;
+									<%= password_field_tag :password, nil,:placeholder => "password", :class => "form-control"  %> &nbsp; </br> 
+									<%= submit_tag "Login", :class => 'btn btn-primary btn-medium' %>
+							<% end -%>
+							</div>	
+                	  	</li>
+                	  </ul>
+            		</li>
+            		<% end -%>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>TIDE: Tracking of Indels by DEcomposition</h1>
+                <p>TIDE is a simple and accurate assay to precisely determine the spectrum and frequency of targeted mutations generated in a pool of cells by  genome CRISPR/Cas9
+              	genome editing tools.</p>
+                <a href="http://tide.nki.nl" target="_blank" class="btn btn-primary btn-xl page-scroll">Try free version!</a>
+                <hr>
+                <h3>Do yo want a local installation of TIDE to keep your sequence data private &amp; safe, avoid connection troubles with proper tech support?</h3>
+                <a href="#gettingstarted" class="btn btn-primary btn-xl page-scroll">Get started now!</a>
+                <hr>
+                <p><font size="3">TIDE published at <a href="http://nar.oxfordjournals.org/content/42/22/e168" target="_blank">Nucleic Acid Research</a></br>
+					TIDE developed at <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %></font></p>
+				<img  src="assets/nki.png" alt="" width="180" height="100">
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">TIDE</h2>
+                    <h2 class="section-heading">Easy quantitative assessment of genome editing</h2>
+                    <hr class="light">
+                    <p class="text-faded">
+                    	TIDE is a cheap, simple and accurate assay to precisely determine the spectrum and frequency of targeted mutations generated in a pool of cells by genome editing tools 
+			          	such as CRISPR/Cas9, TALENs and ZFNs. TIDE requires only standard molecular biology reagents and involves three simple steps:
+	    		      	1.	One pair of standard PCR reactions.
+						2.	One pair of standard capillary ("Sanger") sequencing reactions.
+						3.	Analysis of the two resulting raw sequencing files using a dedicated web tool. The algorithm accurately reconstructs the spectrum 
+						of indels from the sequence traces.
+						The web tool reports the precise identity of the mutations and their frequencies in a few intuitive graphs and tables. 
+                    </p>
+                    <p class="text-faded">
+	                    <img src="assets/tide-project-f1_bak.png" alt="" class="img-responsive">
+ 					</p>
+                   	<a href="http://nar.oxfordjournals.org/content/42/22/e168" target="_blank" class="btn btn-default btn-xl">View TIDE publication</a>
+					<hr class="light">
+                    <a href="#gettingstarted" class="btn btn-default btn-xl">Get Started For TIDE Local Installation!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gettingstarted">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Getting Started with acquiring TIDE Software Package!</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+        	<div class="row">
+        		<div class="col-lg-12 text-center">
+                    <h2>How does this work?</h2>
+                </div>
+        	</div>
+        	<div class="row">
+        		<div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <h3>Step 1 &gt; <span class="text-primary">Request TIDE</span></h3>
+                        <p class="text-muted">Request TIDE software package via this web app by choosing an option that fits your organization.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                    	<h3>Step 2 &gt; <span class="text-primary">License Aggrement</span></h3>
+                        <p class="text-muted">Next, the Tech Transfer Office of NKI-AVL will get in touch with you to finalize the license aggrement.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                    	<h3>Step 3 &gt; <span class="text-primary">Download TIDE</span></h3>
+                        <p class="text-muted">Done! Your account will be created and you can download the reday to deploy TIDE package.</p>
+                    </div>
+                </div>
+        	</div>		
+        </div>
+        <div class="container">
+        	<div class="row">
+        		<div class="col-lg-12 text-center">
+                    <h2>What are my options?</h2>
+                </div>
+        	</div>
+        	<div class="row">
+        		<div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <h3 class="text-primary">Academic</h3>
+                        <p>
+          					Academic/Research Institutes &amp; Universities</br>
+          					1 year of tech support* 
+           					</br>
+          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>2500**
+          				</p>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <h3 class="text-primary">Small Medium Enterprises</h3>
+                        <p>
+          					Small/Medium Enterprises with &lt; 100 people </br>
+          					1 year of tech support*
+          					</br>
+          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>5000**
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <h3 class="text-primary">Corporate</h3>
+                        <p>
+                        	Large Corporations with &gt; 100 people</br>
+                        	1 year of tech support*
+                        	</br>
+          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>10000**
+                        </p>
+                    </div>
+                </div>
+        	</div>
+        </div>		
+        <div class="container">
+            <div class="row">
+            	<div class="col-lg-12 text-center">
+            		<div class="service-box">
+		            	<a href="#request" class="btn btn-primary btn-xl">Request TIDE Software Package!</a>
 					</div>
-       	 		</div>
-        		<div class="col-md-2">
-        		</div>	
-        		<div class="col-md-3">
-					<div align="center">
-						<img class="img-circle" src="assets/installation.png" alt="Generic placeholder image" width="140" height="140"></br>
-						<a class="btn btn-lg btn-primary" href="order" role="button">TIDE software package</a>
-						</br>
-						<span class="text-muted" align="justify">Order / Request information for licensed ready to use TIDE shiny R package for local installation.</span>
-					</div>	
-        		</div>
-        		<div class="col-md-2">
-        		</div>
-      		</div>
-
-
-
-      <div class="row featurette">
-      	<div class="col-md-12">
-      		<div id="project">
-      		</br>
-      		<h2 class="featurette-heading">TIDE &nbsp; <span class="text-muted">tracking of indels by decomposition</span></h2>
-	        <div class="row">
-	        <div class="col-md-7">        	
-          	   	<p class="lead">
-	          	TIDE is a cheap, simple and accurate assay to precisely determine the spectrum and frequency of targeted mutations generated in a pool of cells by genome editing tools 
-	          	such as CRISPR/Cas9, TALENs and ZFNs. TIDE requires only standard molecular biology reagents and involves three simple steps: </br></br>
-	          	1.	One pair of standard PCR reactions.</br>
-				2.	One pair of standard capillary ("Sanger") sequencing reactions.</br>
-				3.	Analysis of the two resulting raw sequencing files using a dedicated web tool. The algorithm accurately reconstructs the spectrum 
-				of indels from the sequence traces. </br></br>
-				The web tool reports the precise identity of the mutations and their frequencies in a few intuitive graphs and tables. 
-				See <%= link_to "Brinkman et al, Nucl. Acids Res. (2014)", "http://nar.oxfordjournals.org/content/42/22/e168", :target => "_blank" %> for a detailed explanation and examples.
-               	</p>
-               	<a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
-        	</div>
-        	<div class="col-md-5">
-        		<img class="img-rounded" src="assets/tide-project-f1.png" alt="Generic placeholder image">
-        	</div>
-        	</div>
-        	</div>
+	            </div>
+	            <div class="col-lg-12 text-center">
+	            	<div class="service-box">
+	            		<p>
+	            			If you have any question
+	            		</p>
+	            		<a href="#contact" class="btn btn-default btn-xl">Contact Us!</a>
+	            	</div>
+	            </div>
+            	<!--
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
+                        <h3>Sturdy Templates</h3>
+                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <h3>Ready to Ship</h3>
+                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <h3>Up to Date</h3>
+                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <h3>Made with Love</h3>
+                        <p class="text-muted">You have to make your websites with love these days!</p>
+                    </div>
+                </div>
+               -->
+            </div>
+            <div class="row">
+            	<div class="col-lg-12 text-muted">
+            		<hr class="primary">
+            		<p><font size="2">*Continued tech support &amp; free updates of new TIDE versions after the initial one year term can be secured against an annual fee that is 15% of the initial license fee.</font></p>
+   	        		<p><font size="2">**These prices already include an optional 20% discount to use your logo in our landing page.</p>
+            	</div>
+            </div>	
         </div>
-      </div>
+    </section>
 
-
-
-      <div class="row featurette">
-        <div class="col-md-12">
-        	<div id="local">
-        	</br>
-        	  <h2 class="featurette-heading">Benefits of TIDE local installation</h2>
-        	   <div class="row">
-        		<div class="col-lg-4">
-          			<img class="img-rounded" src="assets/data-security.png" alt="Generic placeholder image" width="140" height="140">
-        		</div><!-- /.col-lg-4 -->
-        		<div class="col-lg-8">
-          				<p class="lead">
-          					<strong>Data Security </strong></br>
-          					Although the TIDE web tool does not store or analyze any uploaded data, you may prefer to keep your confidential sequence files local. 
-          				</p>
-        		</div><!-- /.col-lg-6 -->
-        	  </div>
-        	  </br></br>
-        	  <div class="row">
-        		<div class="col-lg-4">
-          			<img class="img-rounded" src="assets/connection-issues.png" alt="Generic placeholder image" width="140" height="140">
-        		</div><!-- /.col-lg-4 -->
-        		<div class="col-lg-8">
-          				<p class="lead">
-          					<strong>No Firewall/Connection Issues </strong></br>
-          					Local installation of TIDE on your own servers / private cloud overcomes access problems related to firewall issues. 
-          				</p>
-        		</div><!-- /.col-lg-6 -->
-        	  </div>
-          	  </br></br>
-        	  <div class="row">
-        		<div class="col-lg-4">
-          			<img class="img-rounded" src="assets/tech-support.png" alt="Generic placeholder image" width="140" height="140">
-        		</div><!-- /.col-lg-4 -->
-        		<div class="col-lg-8">
-          				<p class="lead">
-          					<strong>Technical Support </strong></br>
-          					Ready to use TIDE software package also comes with one year technical support.
-          					Continued support and free updates of new TIDE versions after the initial one year term can be secured against an annual fee that is 15% of the initial license fee. 
-          				</p>
-        		</div><!-- /.col-lg-6 -->
-        	  </div>
-              <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
+    <section id="request"class="bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Request TIDE Software Package!</h2>
+                    <hr class="primary">   
+                </div>
+            </div>
+            <div class="row">
+            	<div class="col-lg-12 text-center">
+            	<p><i><strong>**all fields are mandatory</strong></i></p>
+            	<div class="reqInfoOrder"> 	       
+					<%= form_tag(:controller => 'app', :action => 'orderAction') do %>
+				   		<%= select_tag :chosenPlan, options_for_select([ 'Select an option', 'Academic', 'SME', 'Corporate' ], @selectedPlan), :class => "form-control" %></br>
+			   			<%= text_field_tag :name , nil, :placeholder => "Full name", :class => "form-control" %></br>
+   		    			<%= text_field_tag :email , nil, :placeholder => "Email", :class => "form-control" %></br>
+   		    			<%= text_field_tag :organization , nil, :placeholder => "Company / Institute / University name", :class => "form-control" %></br>
+						<%= text_area_tag :organizationAddress , nil, :placeholder => "Company / Institute / University complete address", :class => "form-control" %></br>
+						<%= text_field_tag :contactNumber , nil, :placeholder => "Your contact number at organization", :class => "form-control" %></br>
+						<%= text_field_tag :webAddress , nil, :placeholder => "Website of company / institute/ university", :class => "form-control" %></br>
+       					<%= submit_tag "Request TIDE", :class => 'btn btn-primary' %>
+					<% end -%>
+				</div>
+				</div>
+            </div>	
         </div>
-      </div>
-      </div>
+	</section>
 
-      <div class="row featurette">
-        <div class="col-md-12">
-        	<div id="plan">
-        	  </br>	
-        	  <h2 class="featurette-heading">TIDE <span class="text-muted">plans</span></h2>
-        	  </br>
-        	  </br>
-        	  <div class="row">
-        	  	<p class="lead">
-        	  		All TIDE plans allow you to download all currently available versions of the software package with technical support for one year.
-        	  		Continued support and free updates of new TIDE versions after the initial one year term can be secured against an annual fee that is 15% of the initial license fee.
-        	  		Select a plan according to your institute/organization below!
-        	  	</p>	  
-        	  </div>	
-        	   <div class="row">
-        		<div class="col-lg-4">
-          			<img class="img-circle" src="assets/academic.png" alt="Generic placeholder image" width="140" height="140">
-         	 			<h2>Academic</h2>
-          				<p>
-          					Academic/Research Institutes</br>
-          					Universities</br>
-          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>2500</br>
-          				</p>
-          				<p>
-          					<%= form_tag(:controller => 'app', :action => 'order') do %>
-		   						<%= hidden_field_tag :selectedPlan, 'Academic' %>
-				       			<%= submit_tag "Select", :class => 'btn btn-primary' %>
-							<% end -%>
-          				</p>	
-        		</div><!-- /.col-lg-4 -->
-        		<div class="col-lg-4">
-          			<img class="img-circle" src="assets/sme.png" alt="Generic placeholder image" width="140" height="140">
-         	 			<h2>SME</h2>
-          				<p>
-          					Small/Medium Enterprises</br>
-          					&lt; 100 people </br>
-          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>5000</br>
-          				</p>
-          				<p>
-          					<%= form_tag(:controller => 'app', :action => 'order') do %>
-		   						<%= hidden_field_tag :selectedPlan, 'SME' %>
-				       			<%= submit_tag "Select", :class => 'btn btn-primary' %>
-							<% end -%>
-          				</p>
-        		</div><!-- /.col-lg-4 -->
-        		<div class="col-lg-4">
-          			<img class="img-circle" src="assets/corporate.png" alt="Generic placeholder image" width="140" height="140">
-         	 			<h2>Corporate</h2>
-          				<p>
-          					Large Corporations</br>
-          					&gt; 100 people</br>
-          					<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>10000</br>
-          				</p>
-          				<p>
-          					<%= form_tag(:controller => 'app', :action => 'order') do %>
-		   						<%= hidden_field_tag :selectedPlan, 'Corporate' %>
-				       			<%= submit_tag "Select", :class => 'btn btn-primary' %>
-							<% end -%>
-          				</p>
-        		</div><!-- /.col-lg-4 -->
-               <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
-        	</div>
+	<section id= "requirements" class="bg-dark">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Technical Requirements for TIDE</h2>
+                    <hr class="primary">   
+                </div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6">
+                	<h2>Deploy TIDE on Shiny R Server</h2>
+          			<p>
+          				Required platform: <strong>Web Server</strong></br>
+          				Required Software: </br>
+          				<ul>
+          					<li>Web Server OS: <strong>Ubuntu 12.04 or later / Fedora 19+ / RedHat 7+ / openSUSE 13.1+</strong> (For installing the Shiny Server binary 64 bit architecture is needed)</li>
+          					<li>R version: <strong>3.1.1 or later</strong></li>
+          				</ul>
+          				Comments: </br>
+          				<ul>
+          					<li>Installing Shiny Server on Amazon linux instances (e.g. EC2 t2 micro) is also possible. But make sure you have a compatible linux OS (e.g. ‘Amazon Linux AMI’).</li>
+          					<li>The required R packages from TIDE and shiny package works with R version 3.0.2 or higher but it is highly recommended to get a version of R 3.1.1 for a smoother deployment of TIDE shiny R package.</li>
+          				</ul>
+          			</p>
+                </div>
+                <div class-="col-lg-6 col-md-6">
+                	<h2>Deploy TIDE on <%= link_to "shinyapps.io", "http://www.shinyapps.io/", :target => "_blank" %> Cloud Server</h2>
+          			<p>
+          				Required platform: <strong>Any local machine</strong> from where you can deploy to the shinyapps.oi cloud.</br>
+          				Required Software: </br>
+          				<ul>
+          					<li>Local Machine OS: <strong>Linux/Windows/Mac OSX</strong></li>
+          					<li>R version: <strong>3.1.1 or later</strong></li>
+          				</ul>
+          				Comments: </br>
+          				<ul>
+          					<li>You would require an account in shinyapps.io cloud server and you can choose from plans (Free, Basic, Standard or Professional) for your need.</li>
+          				</ul>
+          			</p>
+                </div>	
+			</div>	
+		</div>
+	</section>	
+	<!--
+    <section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="assets/1.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="assets/2.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="assets/3.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="assets/4.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="assets/5.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="assets/6.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-      </div>
-
-	  
-      <div class="row featurette">
-        <div class="col-md-12">
-        	<div id="requirements">
-        	  </br>
-        	  <h2 class="featurette-heading">Technical <span class="text-muted">requirements</span></h2>
-        	  </br>
-        	  </br>
-        	   <div class="row">
-        		<div class="col-lg-6">
-         	 			<h2>Deploy TIDE on Shiny R Server</h2>
-          				<p>
-          					Required platform: <strong>Web Server</strong></br>
-          					Required Software: </br>
-          					<ul>
-          						<li>Web Server OS: <strong>Ubuntu 12.04 or later / Fedora 19+ / RedHat 7+ / openSUSE 13.1+</strong> (For installing the Shiny Server binary 64 bit architecture is needed)</li>
-          						<li>R version: <strong>3.1.1 or later</strong></li>
-          					</ul>
-          					Comments: </br>
-          					<ul>
-          						<li>Installing Shiny Server on Amazon linux instances (e.g. EC2 t2 micro) is also possible. But make sure you have a compatible linux OS (e.g. ‘Amazon Linux AMI’).</li>
-          						<li>The required R packages from TIDE and shiny package works with R version 3.0.2 or higher but it is highly recommended to get a version of R 3.1.1 for a smoother deployment of TIDE shiny R package.</li>
-          					</ul>
-          				</p>
-        		</div><!-- /.col-lg-4 -->
-        		<div class="col-lg-6">
-         	 			<h2>Deploy TIDE on <%= link_to "shinyapps.io", "http://www.shinyapps.io/", :target => "_blank" %> Cloud Server</h2>
-          				<p>
-          					Required platform: <strong>Any local machine</strong> from where you can deploy to the shinyapps.oi cloud.</br>
-          					Required Software: </br>
-          					<ul>
-          						<li>Local Machine OS: <strong>Linux/Windows/Mac OSX</strong></li>
-          						<li>R version: <strong>3.1.1 or later</strong></li>
-          					</ul>
-          					Comments: </br>
-          					<ul>
-          						<li>You would require an account in shinyapps.io cloud server and you can choose from plans (Free, Basic, Standard or Professional) for your need.</li>
-          					</ul>
-          				</p>
-        		</div><!-- /.col-lg-4 -->
-        	</div>
-        	<a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
+    </section>
+	
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Technical Requirements</h2>
+                <a href="#" class="btn btn-default btn-xl wow tada">Download Now!</a>
+            </div>
         </div>
-      </div>
-      </div>
-      
-      <!-- 
-      <hr class="featurette-divider">
-	  
-      <div class="row featurette">
-        <div class="col-md-12">
-        	<div id="team">
-        	  <h2 class="featurette-heading">TIDE <span class="text-muted">team</span></h2>
-        	  </br>
-        	  </br>
-        	   <div class="row">
-        		<div class="col-lg-4">
-          			<img class="img-circle" src="assets/bas.jpg" alt="Generic placeholder image" width="140" height="140">
-         	 			<h2>Bas van Steensel</h2>
-          				<p>
-          					<strong>Group leader, Gene Regulation</strong></br>
-          				</p>
-        		</div>
-        		<div class="col-lg-4">
-          			<img class="img-circle" src="assets/eva.jpg" alt="Generic placeholder image" width="140" height="140">
-         	 			<h2>Eva Brinkman</h2>
-          				<p>
-          					<strong>PretDoc, Gene Regulation</strong></br>
-          				</p>
-        		</div>
-        		<div class="col-lg-4">
-          			<img class="img-circle" src="assets/tao.jpg" alt="Generic placeholder image" width="140" height="140">
-         	 			<h2>Tao Chen</h2>
-          				<p>
-          					<strong>PreDoc, Gene Regulation</strong></br>
-           					
-         				</p>
-        		</div>
-               <a href="#"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
-        	 </div>
-        	</div>
-      	</div>
-      </div>
-	  -->
-		
-      <!-- /END THE FEATURETTES -->
-
-	  <hr class="featurette-divider">
-
-      <!-- FOOTER -->
-      <footer>
-      	<div class="row">
-      		
-	      	<div class="col-lg-4">
-    		    <p align="left">&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %>
-    		    </br>For any query, <%= mail_to "Research-IT@nki.nl", '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp; NKI Research-IT'.html_safe %>
-        		</p>
-        	</div>
-        	<div class="col-lg-4">
-        	</div>
-        	<div class="col-lg-4">
-				<img  src="assets/nki.png" alt="Generic placeholder image" width="180" height="100">
-    	    </div>
-    	 </div>   
-      </footer>
-
-    </div><!-- /.container -->
+    </aside>
+	-->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Conatct us with your question!</h2>
+                    <hr class="primary">
+                    <div class="reqInfo">
+						<%= form_tag(:controller => 'app', :action => 'reqInfoAction') do %>
+							<%= text_field_tag :towhom , 'TO: Research-IT@nki.nl', :class => "form-control", :disabled => true %></br>
+			   				<%= text_field_tag :name , nil, :placeholder => "Full name", :class => "form-control" %></br>
+   		    				<%= text_field_tag :email , nil, :placeholder => "Email", :class => "form-control" %></br>
+							<%= text_area_tag :question , nil, :placeholder => "Details ...", :class => "form-control" %></br>
+       						<%= submit_tag "Send", :class => 'btn btn-primary' %>
+						<% end -%>
+					</div>
+                </div>
+            </div>
+            <hr class="primary">
+            <div class="row">
+            	<p class="text-center">
+ 					<img  src="assets/nki.png" alt="" width="180" height="100"></br>
+            		&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %>
+            	</p>	
+            </div>	
+        </div>
+    </section>
     
