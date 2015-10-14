@@ -6,6 +6,28 @@ class User
     return con
   end
   
+  ## check if user exists in the database
+  def self.userStatus(email)
+    
+    user = false
+    authorized = false
+    
+    con = User.new.self
+    queryUser = "select userEmail, `isAuthorized?` from users where userEmail = '" + email + "'"
+    refqueryUser = con.query(queryUser)
+    if (refqueryUser.num_rows == 0)
+      return user,authorized
+    else
+      refqueryUser.each do |mail,status|
+        user = mail
+        authorized = status
+      end    
+    end
+        
+    return user,authorized
+        
+  end
+  
   ## get user detials by mail
   def self.getUserDetailsByEmail(user)
     

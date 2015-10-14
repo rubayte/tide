@@ -14,14 +14,15 @@
           </ul>	
           <ul class="nav navbar-nav navbar-right">
 			<% if session[:user] -%>
-   	          	<li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <%= session[:user] %> <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-					<li><a href="logout"><span title="Logout">Logout </span></a></li>
-                    <li role="separator" class="divider"></li>
-		            <li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>
-                  </ul>
-            	</li>
+   	          		<li class="dropdown">
+                	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <%= session[:user] %> <span class="caret"></span></a>
+                	  <ul class="dropdown-menu">
+                	  	<li><a href="home"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; Dashboard</a></li>
+						<!--<li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>-->
+                	    <li role="separator" class="divider"></li>
+   						<li><a href="logout"><span title="Logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp; Logout </span></a></li>
+                	  </ul>
+            		</li>
           	<% else -%>
 	          	<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My TIDE packages<span class="caret"></span></a>
@@ -68,19 +69,12 @@
       <!-- FOOTER -->
       <footer>
       	<div class="row">
-      		
-	      	<div class="col-lg-4">
-    		    <p align="left">&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %>
-    		    </br>For any query, <%= mail_to "Research-IT@nki.nl", '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp; NKI Research-IT'.html_safe %>
-    		    </br><a href="#">Privacy</a> 
-    		    </br> <a href="#">Terms</a>
-        		</p>
+	      	<div class="col-lg-12">
+	      		<p align="center">
+	      			<img  src="assets/nki.png" alt=".." width="180" height="100"></br>
+	      			<font size="2">&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %></font>
+	      		</p>
         	</div>
-        	<div class="col-lg-4">
-        	</div>
-        	<div class="col-lg-4">
-				<img  src="assets/nki.png" alt="Generic placeholder image" width="180" height="100">
-    	    </div>
     	 </div>   
       </footer>
 

@@ -32,8 +32,8 @@
           	<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <%= session[:user] %> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-		            <li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>
-                    <li role="separator" class="divider"></li>
+		            <!--<li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>
+                    <li role="separator" class="divider"></li>-->
 					<li><a href="logout"><span title="Logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp; Logout </span></a></li>
                   </ul>
             </li>
@@ -56,10 +56,8 @@
             -->
           </ul>
           <div class="ftdash">
-	          	<p>&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %>
-    		    	</br>For any query, <a class="btn-link" data-toggle="modal" data-target="#createIssue"><strong>Create</strong></a> a Help Desk ticket!
-        		</p>
-	          <img  src="assets/nki.png" alt="Generic placeholder image" width="180" height="100">
+		  	<img  src="assets/nki.png" alt="Generic placeholder image" width="180" height="100">
+	        <p><font size="2">&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %></font></p>
           </div>
         </div>
         

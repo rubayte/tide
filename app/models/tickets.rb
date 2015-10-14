@@ -9,17 +9,27 @@ class Tickets
     
     msg = nil
     con = Tickets.new.self
-    planid = nil
+    planid = "0"
+    email = nil
+    msg = nil
+    name = nil
     
     ## map plan to db
-    queryPlan = "select planName,id from plans where planName = '" + params[:plan]+ "'"
-    refQueryPlan = con.query(queryPlan)
-    refQueryPlan.each do |r1,r2|
-      planid = r2
-    end 
+    #queryPlan = "select planName,id from plans where planName = '" + params[:plan]+ "'"
+    #refQueryPlan = con.query(queryPlan)
+    #refQueryPlan.each do |r1,r2|
+    #  planid = r2
+    #end 
 
+    ## validate email
+    #emailV  = Validate.validateEmail(params[:email])
+    
+    ## take care of single qoutes for mysql db
+    msg =  Validate.validateMySQLStrings(params[:question])
+    name = Validate.validateMySQLStrings(params[:name])
+    
     ## create ticket in app database
-    createTicket = "insert into `anonymous_tickets`(email,name,ticket,plan,status,createdAt,lastEditAt,lastEditBy) values('"+params[:email]+"','"+params[:name]+"','"+ params[:question]+"',"+planid+",'open',NOW(),NOW(),'-')"
+    createTicket = "insert into `anonymous_tickets`(email,name,ticket,plan,status,createdAt,lastEditAt,lastEditBy) values('"+params[:email]+"','"+ name +"','"+ msg +"',"+planid+",'open',NOW(),NOW(),'-')"
     refcreateTicket = con.query(createTicket)
     msg = "created"
     ## create the same ticket in atlassian jira

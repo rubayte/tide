@@ -77,14 +77,19 @@
 
 .notice{
   background-color: transparent;
+  color: #222222; 
+}
+
+.bg-custom{
+	background-color: #F2F2F2;
 }
 
 .invalid_notice{
-  background-color: #FFCCCC;
+  background-color: #EB3812;
   border:1px solid red;
 }
 .valid_notice{
-  background-color: #CCFFCC;
+  background-color: #01DF01;
   border:1px solid green;
 }
 

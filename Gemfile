@@ -14,7 +14,7 @@ gem 'jquery-ui-rails'
 gem 'jquery-rails'
 gem 'jquery-datatables-rails'
 gem 'libv8', '3.16.14.1'
-
+gem 'email_verifier'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

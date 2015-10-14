@@ -46,6 +46,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    dnsruby (1.58.0)
+    email_verifier (0.1.0)
+      dnsruby (>= 1.5)
     erubis (2.7.0)
     execjs (2.5.2)
     hike (1.2.3)
@@ -135,6 +138,7 @@ DEPENDENCIES
   bcrypt-ruby
   bootstrap-sass (~> 3.2.0)
   coffee-rails (~> 3.2.1)
+  email_verifier
   jquery-datatables-rails
   jquery-modal-rails
   jquery-rails
