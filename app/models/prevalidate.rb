@@ -13,6 +13,8 @@ class Prevalidate
   
   def self.validateURL(url)
     
+    #url = URI.parse(url) rescue false
+    #url.kind_of?(URI::HTTP) || url.kind_of?(URI::HTTPS)
     if (url =~ /\A#{URI::regexp(['http', 'https'])}\z/)
       return "pass"
     else 

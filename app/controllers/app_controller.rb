@@ -60,7 +60,7 @@ class AppController < ApplicationController
         flash[:notice] = "Your web address is not correct. Please check again! (examples: http://www.foo.com, https://www.foo.com, http://www.foo.com/mypage )"
         flash[:color]= "invalid"
         return
-      elsif msgnumber == "invalid_number" and msgurl == "pass"
+      elsif msgnumber == "invalid_number" and msgurl 
         redirect_to :controller => "app", :action => "index", :anchor => "request"
         flash[:notice] = "Your phone number is not correct or too long. Only use digits."
         flash[:color]= "invalid"

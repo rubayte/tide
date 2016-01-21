@@ -14,15 +14,8 @@ class Tickets
     msg = nil
     name = nil
     
-    ## map plan to db
-    #queryPlan = "select planName,id from plans where planName = '" + params[:plan]+ "'"
-    #refQueryPlan = con.query(queryPlan)
-    #refQueryPlan.each do |r1,r2|
-    #  planid = r2
-    #end 
-
     ## validate email
-    #emailV  = Validate.validateEmail(params[:email])
+    # emailV  = Validate.validateEmail(params[:email])
     
     ## take care of single qoutes for mysql db
     msg =  Validate.validateMySQLStrings(params[:question])
@@ -33,9 +26,9 @@ class Tickets
     refcreateTicket = con.query(createTicket)
     msg = "created"
     ## create the same ticket in atlassian jira
-    #data = "{\\\"fields\\\":{\\\"project\\\":{\\\"key\\\":\\\"SUP\\\"},\\\"summary\\\":\\\"tide-#{user}\\\",\\\"description\\\":\\\"#{params[:ticket]}\\\",\\\"issuetype\\\":{\\\"name\\\":\\\"Task\\\"},\\\"customfield_10004\\\":2}}"
-    #issuecreateCmd = "curl -D- -u user:pass -X POST --data \"#{data}\" -H \"Content-Type: application/json\" https://nki-research-it.atlassian.net/rest/api/latest/issue/"
-    #system(issuecreateCmd)
+    data = "{\\\"fields\\\":{\\\"project\\\":{\\\"key\\\":\\\"SUP\\\"},\\\"summary\\\":\\\"tide-#{params[:email]}\\\",\\\"description\\\":\\\"#{params[:name]} . #{params[:question]}\\\",\\\"issuetype\\\":{\\\"name\\\":\\\"Task\\\"},\\\"customfield_10004\\\":2}}"
+    issuecreateCmd = "curl -D- -u r.rahman:poweriutnki -X POST --data \"#{data}\" -H \"Content-Type: application/json\" https://nki-research-it.atlassian.net/rest/api/latest/issue/"
+    system(issuecreateCmd)
     msg = "created"
     con.close()
     
@@ -55,9 +48,9 @@ class Tickets
     refcreateTicket = con.query(createTicket)
     msg = "created"
     ## create the same ticket in atlassian jira
-    #data = "{\\\"fields\\\":{\\\"project\\\":{\\\"key\\\":\\\"SUP\\\"},\\\"summary\\\":\\\"tide-#{user}\\\",\\\"description\\\":\\\"#{params[:ticket]}\\\",\\\"issuetype\\\":{\\\"name\\\":\\\"Task\\\"},\\\"customfield_10004\\\":2}}"
-    #issuecreateCmd = "curl -D- -u user:pass -X POST --data \"#{data}\" -H \"Content-Type: application/json\" https://nki-research-it.atlassian.net/rest/api/latest/issue/"
-    #system(issuecreateCmd)
+    data = "{\\\"fields\\\":{\\\"project\\\":{\\\"key\\\":\\\"SUP\\\"},\\\"summary\\\":\\\"tide-#{user}\\\",\\\"description\\\":\\\"#{params[:ticket]}\\\",\\\"issuetype\\\":{\\\"name\\\":\\\"Task\\\"},\\\"customfield_10004\\\":2}}"
+    issuecreateCmd = "curl -D- -u r.rahman:poweriutnki -X POST --data \"#{data}\" -H \"Content-Type: application/json\" https://nki-research-it.atlassian.net/rest/api/latest/issue/"
+    system(issuecreateCmd)
     msg = "created"
     con.close()
     
