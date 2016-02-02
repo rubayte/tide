@@ -33,7 +33,7 @@ class Tickets
     con.close()
     
     return msg
-
+ 
     
   end
   
