@@ -1,6 +1,6 @@
 
 
-    <nav id="mainNav" class="navbar navbar-inverse navbar-fixed-top">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -72,10 +72,10 @@
                 <h3>METHOD FOR EASY QUANTITATIVE ASSESSMENT OF GENOME EDITING</h3>
                 <!--<p>TIDE is a simple and accurate assay to precisely determine the spectrum and frequency of targeted mutations generated in a pool of cells by  genome CRISPR/Cas9
               	genome editing tools.</p> -->
-                <a href="http://tide-calculator.nki.nl/" target="_blank" class="btn btn-primary btn-xl page-scroll">Free webtool</a>
+                <a href="http://tide-calculator.nki.nl/" target="_blank" class="btn btn-primary-top btn-xl page-scroll">Free webtool</a>
                 <hr>
                 <!--<h4>FOR LOCAL INSTALLATION OF TIDE</h4>-->
-                <a href="#gettingstarted" class="btn btn-primary btn-xl page-scroll">Local installation of TIDE</a>
+                <a href="#gettingstarted" class="btn btn-primary-top btn-xl page-scroll">Local installation of TIDE</a>
                 <hr>
                 <div class="row">
                	<p><font size="3">TIDE published at <a href="http://nar.oxfordjournals.org/content/42/22/e168" target="_blank">Nucleic Acid Research</a> </br> 
@@ -270,11 +270,11 @@
 		 			<%end%> 	       
 					<%= form_tag(:controller => 'app', :action => 'orderAction') do %>
 				   		<%= select_tag :chosenPlan, options_for_select([ 'Select an option', 'Academic', 'SME', 'Corporate' ], @selectedPlan), :class => "form-control" %></br>
-			   			<%= text_field_tag :name , nil, :placeholder => "Full name", :class => "form-control" %></br>
+			   			<%= text_field_tag :name , nil, :placeholder => "Full name of authorized signatory", :class => "form-control" %></br>
    		    			<%= text_field_tag :email , nil, :placeholder => "Email", :class => "form-control" %></br>
    		    			<%= text_field_tag :organization , nil, :placeholder => "Company / Institute / University name", :class => "form-control" %></br>
 						<%= text_area_tag :organizationAddress , nil, :placeholder => "Company / Institute / University complete address", :class => "form-control" %></br>
-						<%= text_field_tag :contactNumber , nil, :placeholder => "Your contact number at organization", :class => "form-control" %></br>
+						<%= text_field_tag :contactNumber , nil, :placeholder => "Contact number at organization", :class => "form-control" %></br>
 						<%= text_field_tag :webAddress , nil, :placeholder => "Website of company / institute/ university", :class => "form-control" %></br>
        					<%= submit_tag "Request TIDE", :class => 'btn btn-primary' %>
 					<% end -%>
@@ -364,4 +364,5 @@
             </div>	
         </div>
     </section>
-    
+
+
