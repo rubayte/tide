@@ -79,16 +79,18 @@ class User
     dbsalt = nil
     updatePass= nil
     isAuthorized = nil
+    isAdmin = nil
     
     ## validate user email and pass
-    validateUser = "select userPass,userPassSalt,`updatePass?`,`isAuthorized?` from users where userEmail = '" + params[:email]+ "'"
+    validateUser = "select userPass,userPassSalt,`updatePass?`,`isAuthorized?`,`isAdmin?` from users where userEmail = '" + params[:email]+ "'"
     refvalidateUser = con.query(validateUser)
     if refvalidateUser.num_rows > 0
-      refvalidateUser.each do |r1,r2,r3,r4|
+      refvalidateUser.each do |r1,r2,r3,r4,r5|
         dbpass = r1
         dbsalt = r2
         updatePass = r3
         isAuthorized = r4
+        isAdmin = r5
       end
     else
       msg = "invalid"
@@ -104,7 +106,11 @@ class User
         if updatePass == '1'
           msg = "update_pass"
         else
-          msg = "valid"
+          if isAdmin == '1'
+            msg = "admin"
+          else
+            msg = "valid"
+          end
         end
       else
         msg = "invalid"

@@ -12,6 +12,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  #This method is for preventing normal users to access admin pages
+  def authenticate_admin
+    flag = Admin.userAdmin?(session[:user])
+    if flag == "1"
+      return true
+    else
+      redirect_to :controller => 'app', :action => 'messageUserLogin', :token => "admin"
+      return
+    end
+  end
+    
   
   
 end

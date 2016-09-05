@@ -1,0 +1,176 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index">TIDE</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <!--
+          <ul class="nav navbar-nav navbar-left">
+          	<li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> &nbsp; Home <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                  	<li><a href="#"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; Dashboard</a></li>
+                  	<li role="separator" class="divider"></li>
+                  	<li><%= link_to 'TIDE Shiny R webtool'.html_safe, "http://tide.nki.nl", :target => "_blank"%></li>
+                  	
+                  	<li><a href="tideproject">TIDE project</a></li>
+                  	<li><a href="tideteam">TIDE team</a></li>
+                  	<li><a href="tideplans">TIDE plans</a></li>
+                  	<li><a href="techreq">Technical requirements</a></li>
+                  	
+                  </ul>
+            </li>
+          </ul>
+          -->
+          <ul class="nav navbar-nav navbar-right">
+          	<li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <b><%= session[:user] %></b> <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+		            <!--<li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>
+                    <li role="separator" class="divider"></li>-->
+					<li><a href="logout"><span title="Logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp; <b>Logout</b> </span></a></li>
+                  </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+</nav>
+
+<div class="container-fluid">
+      <div class="row">
+        
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="<%= 'active' if @tabactive == 'dashboard' %>"><a href="adminDashboard"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; Dashboard</a></li>
+            <li class="<%= 'active' if @tabactive == 'plans' %>"><a href="admintideplans"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span> &nbsp; Plans</a></li>
+            <li class="<%= 'active' if @tabactive == 'users' %>"><a href="#admintideusers"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; Users</a></li>
+            <li class="<%= 'active' if @tabactive == 'orders' %>"><a href="admintideorders"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> &nbsp; Orders</a></li>
+            <li class="<%= 'active' if @tabactive == 'tickets' %>"><a href="admintidetickets"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> &nbsp; Tickets</a></li>
+            <li class="<%= 'active' if @tabactive == 'questions' %>"><a href="admintidequestions"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> &nbsp; Anonymous Tickets</a></li>
+            <!--
+            <li class="<%= 'active' if @tabactive == 'project' %>"><a href="tideproject">TIDE project</a></li>
+            <li class="<%= 'active' if @tabactive == 'team' %>"><a href="tideteam">TIDE team</a></li>
+            
+            <li class="<%= 'active' if @tabactive == 'requirements' %>"><a href="techreq">Technical requirements</a></li>
+            -->
+          </ul>
+          <div class="ftdash">
+		  	<img  src="assets/nki.png" alt="Generic placeholder image" width="180" height="100">
+	        <p><font size="2">&copy; <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %></font></p>
+          </div>
+        </div>
+        
+
+       	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+       		
+		
+          <div id="admintideusers" >
+          	
+          	</br>
+			</br>
+			</br>
+
+          	<% if flash[:color]== "valid" %>
+	          	<div class="alert alert-success alert-dismissible" role="alert">
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				  <div align="center">
+					  <strong>Success!</strong> <%= flash[:notice]%>
+				  </div>
+				</div>
+			<% elsif flash[:color]== "invalid"%>
+	          	<div class="alert alert-danger alert-dismissible" role="alert">
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				  <div align="center">
+					  <strong>Oh snap!</strong> <%= flash[:notice]%>
+				  </div>
+				</div>
+		  	<%else%>
+		  	<%end%>
+		  	
+			    	<div class="panel panel-primary">
+					  <div class="panel-heading">TIDE Users</div>
+					  <div class="panel-body">
+					  	<div class="alert alert-success" role="alert">
+					  		<div align="center">
+					  			<a class="btn btn-default" role="button" data-toggle="collapse" href="#addNewUser" aria-expanded="false" aria-controls="addNewUser">
+								  <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New User
+								</a>
+								<div class="collapse" id="addNewUser">
+								  <div align="center">
+								    <%= form_tag(:controller => 'admin', :action => 'add') do %>
+								    	</br>
+								    	<%= hidden_field_tag :type, "user" %>
+									    <%= text_field_tag :useremail , nil, :placeholder => "user email", :class => "form-control" %></br>
+   									    <%= text_field_tag :userfullname , nil, :placeholder => "full name", :class => "form-control" %></br>
+   									    <%= text_field_tag :org , nil, :placeholder => "organization", :class => "form-control" %></br>
+									    <%= text_field_tag :address , nil, :placeholder => "address", :class => "form-control" %></br>
+									    <%= text_field_tag :contactno , nil, :placeholder => "user contact number", :class => "form-control" %></br>
+									    <%= text_field_tag :url , nil, :placeholder => "user website", :class => "form-control" %></br>
+							         	<%= submit_tag "Save", :class => 'btn btn-primary' %>
+									<% end -%>
+								  </div>
+								</div>
+					  		</div>
+					  	</div>
+					  	<div class="table-responsive">
+					  		<% if @users.length == 0 -%>
+					  			<div class="alert alert-danger" role="alert">
+							  		<div align="center">No users found!</div>
+							  	</div>	
+					  		<% else -%>
+						      	<table class="table table-hover table-bordered" id="tuser" cellspacing="0">
+					      		<thead>
+					      			<tr>
+					      				<th>User email</th>
+					      				<th>Full name</th>
+					      				<th>Organization</th>
+					      				<th>Address</th>
+					      				<th>Contact No</th>
+					      				<th>Website</th>
+					      				<th>Update pass?</th>
+					      				<th>Admin?</th>
+					      				<th>Authorized?</th>
+					      				<th>Created at</th>
+					      				<th>Last edit at</th>
+					      				<th>Actions</th>
+					      			</tr>
+					      		<thead>
+					      		<tbody>
+								      	<% @users.each do |userItems| %>
+					 		 				<tr>
+					 		 					<% userItems.each do |item| %>
+						 		 					<td><%= item %></td>
+					 		 					<% end -%>
+					 		 					<td>
+							 						<span title="Edit"><%= link_to '<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>'.html_safe, {:controller => "admin", :action => "edit",:id => userItems[0], :type => "user"} %></span>
+					 		 						&nbsp; | &nbsp;
+					 		 						<span title="Archive"><%= link_to '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>'.html_safe, {:controller => "admin", :action => "archive",:id => userItems[0], :type => "user"} %></span>
+					 		 					</td>
+											</tr>
+										<% end -%>	
+					      		</tbody>			
+								</table>
+							<% end -%>	
+          				</div>  
+					  </div>
+					</div>          
+          </div>        
+	
+
+        </div>
+        
+      </div>
+</div>
+    
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#tuser').DataTable();
+} );
+</script>>
+

@@ -130,6 +130,8 @@ class AppController < ApplicationController
       @msg = "You need to login to view this page."
     elsif params[:token] == "user"
       @msg= "You can not login at this moment. Please try again later."
+    elsif params[:token] == "admin"
+      @msg= "You need admin privileges to view this page."
     elsif params[:token] == "order" or params[:token] == "reqInfo"
       @msg = "Your request has been recorded. You will be contacted soon!"
     else

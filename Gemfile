@@ -1,8 +1,8 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'bootstrap-sass', '~> 3.2.0'
-gem 'autoprefixer-rails'
+gem 'autoprefixer-rails', '5.2.1'
 gem 'ruby-mysql',  '~> 2.9.12'
 gem 'activerecord-ruby_mysql-adapter'
 gem 'will_paginate', '~> 3.0'

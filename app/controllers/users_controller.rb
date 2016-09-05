@@ -17,6 +17,10 @@ class UsersController < ApplicationController
       session[:user] = params[:email]
       redirect_to :home
       return
+    elsif msg == "admin"
+      session[:user] = params[:email]
+      redirect_to :controller => "admin", :action => "adminDashboard"
+      return
     elsif msg == "update_pass"
       session[:user] = params[:email]
       redirect_to :controller => "users", :action => "updatePass", :refemail => params[:email]

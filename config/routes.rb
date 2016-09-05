@@ -14,8 +14,12 @@ Tide::Application.routes.draw do
   match 'techreq', :to => 'users#techreq'
   match "updatePass", :to => 'users#updatePass'
   match "logout", :to => 'users#logout'
-  
-  
+  match "adminDashboard", :to => 'admin#adminDashboard'
+  match "admintideplans", :to => 'admin#admintideplans'
+  match "admintideusers", :to => 'admin#admintideusers'
+  match "admintideorders", :to => 'admin#admintideorders'
+  match "admintidetickets", :to => 'admin#admintidetickets'
+  match "admintidequestions", :to => 'admin#admintidequestions'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
