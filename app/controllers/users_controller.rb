@@ -15,10 +15,12 @@ class UsersController < ApplicationController
     msg = User.getAuthentication(params)
     if msg == "valid"  
       session[:user] = params[:email]
+      session[:isadmin] = nil
       redirect_to :home
       return
     elsif msg == "admin"
       session[:user] = params[:email]
+      session[:isadmin] = true
       redirect_to :controller => "admin", :action => "adminDashboard"
       return
     elsif msg == "update_pass"
@@ -58,6 +60,7 @@ class UsersController < ApplicationController
 
   def logout
     session[:user] = nil
+    session[:isadmin] = nil
     redirect_to :controller => "app", :action => "index"
     return  
   end

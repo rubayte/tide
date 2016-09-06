@@ -21,16 +21,18 @@
                     </li>
 
                     <li class="dropdown">
-                  		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>Local Installation</b><span class="caret"></span></a>
+                  		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>TIDE premium</b><span class="caret"></span></a>
                   		<ul class="dropdown-menu">
                   			<li><a href="#gettingstarted"><b>Getting Started</b></a><li>
                   			<li><a href="#request"><b>Request TIDE Software</b></a><li>
                     		<li><a href="#requirements"><b>Technical Requirements</b></a></li>
                   		</ul>
             		</li>
+            		<!--
             		<li>
             			<a class="page-scroll" href="#tideusers"><b>Tide Users</b></a>
             		</li>
+            		-->
                     <li>
                         <a class="page-scroll" href="#contact"><b>Contact</b></a>
                     </li>
@@ -39,7 +41,11 @@
    	          		<li class="dropdown">
                 	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <b><%= session[:user] %></b> <span class="caret"></span></a>
                 	  <ul class="dropdown-menu">
-                	  	<li><a href="home"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; <b>Dashboard</b></a></li>
+                	  	<% if session[:isadmin]  -%>
+                	  		<li><a href="adminDashboard"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; <b>Admin Dashboard</b></a></li>
+                	  	<% else -%>
+                	  		<li><a href="home"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; <b>Dashboard</b></a></li>
+						<% end -%>
 						<!--<li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>-->
                 	    <li role="separator" class="divider"></li>
    						<li><a href="logout"><span title="Logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp; <b>Logout</b> </span></a></li>
@@ -78,7 +84,7 @@
                 <a href="http://tide-calculator.nki.nl/" target="_blank" class="btn btn-primary-top btn-xl page-scroll">Free webtool</a>
                 <hr>
                 <!--<h4>FOR LOCAL INSTALLATION OF TIDE</h4>-->
-                <a href="#gettingstarted" class="btn btn-primary-top btn-xl page-scroll">Local installation of TIDE</a>
+                <a href="#gettingstarted" class="btn btn-primary-top btn-xl page-scroll">TIDE premium</a>
                 <hr>
                 <div class="row">
                	<p><font size="3">TIDE published at <a href="http://nar.oxfordjournals.org/content/42/22/e168" target="_blank">Nucleic Acid Research</a> </br> 
@@ -119,7 +125,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Getting Started with acquiring TIDE Software Package</h2>
+                    <h2 class="section-heading">Getting Started with acquiring TIDE Premium Software Package</h2>
                     <hr>
                 </div>
             </div>
@@ -127,23 +133,29 @@
        	<div class="container">
         	<div class="row">
         		<div class="col-lg-12 text-center">
-                    <h2>Benefits of TIDE local installation</h2>
+                    <h2>Benefits of TIDE Premium</h2>
                 </div>
         	</div>
         	<div class="row">
-	        	<div class="col-lg-4 col-md-6 text-center">
+        		<div class="col-lg-3 col-md-6 text-center">
+                   <div class="service-box">
+                        <h3><span class="text-primary">Batch Processing</span></h3>
+                        <p class="text-muted">With TIDE premium, you can process mutliple samples simultaneously.</p>
+                    </div>
+            	</div>
+	        	<div class="col-lg-3 col-md-6 text-center">
                    <div class="service-box">
                         <h3><span class="text-primary">Data Security</span></h3>
                         <p class="text-muted">Although the TIDE web tool does not store or analyze any uploaded data, you may prefer to keep your confidential sequence files local.</p>
                     </div>
             	</div>
-            	<div class="col-lg-4 col-md-6 text-center">
+            	<div class="col-lg-3 col-md-6 text-center">
                    <div class="service-box">
                         <h3><span class="text-primary">No Firewall/Connection Issues</span></h3>
-                        <p class="text-muted">Local installation of TIDE on your own servers / private cloud overcomes access problems related to firewall issues.</p>
+                        <p class="text-muted">Local deployment/installation of TIDE on your own servers / private cloud overcomes access problems related to firewall issues.</p>
                     </div>
             	</div>
-            	<div class="col-lg-4 col-md-6 text-center">
+            	<div class="col-lg-3 col-md-6 text-center">
                    <div class="service-box">
                         <h3><span class="text-primary">Technical Support</span></h3>
                         <p class="text-muted">Ready to use TIDE software package also comes with one year technical support*.</p>
@@ -246,11 +258,20 @@
             <div class="row">
             	<div class="col-lg-12 text-muted">
             		<hr class="primary">
-            		<p><font size="2">*Continued tech support &amp; free updates of new TIDE versions after the initial one year term can be secured against 
-            			an annual fee that is 15% of the initial license/set-up fee.</font></p>
-   	        		<p><font size="2">
-   	        			**This discounted rate will allow NKI to publish/advertise the fact that we’ve entered into a license agreement with Licensee concerning the Software,
-   	        			 primarily through our TIDE website.
+            		<p>
+            			<font size="2">
+            				*Continued tech support &amp; free updates of new TIDE versions after the initial one year term can be secured against 
+            				an annual fee that is 15% of the initial license/set-up fee.
+            				</br>
+            		<!--
+            			</font>
+            		</p>
+   	        		<p>
+   	        			<font size="2">
+   	        		-->		
+   	        				**This discounted rate will allow NKI to publish/advertise the fact that we’ve entered into a license agreement with Licensee concerning the Software,
+   	        			 	primarily through our TIDE website.
+   	        			 </font>
    	        			<!--**The quoted prices include an optional 20% discount that is applied in exchange for permission to use your organization's 
    	        			name/logo solely in connection with the fact that you entered into a license agreement for TIDE with us. -->
    	        		</p>
@@ -302,7 +323,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Technical Requirements for TIDE Local Installation</h2>
+                    <h2 class="section-heading">Technical Requirements for TIDE Deployment</h2>
                     <hr class="primary">   
                 </div>
 			</div>
@@ -345,11 +366,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">TIDE Users!</h2>
+                    <h2 class="section-heading">TIDE Premium Users</h2>
                     <hr class="primary">
                 </div>
             </div>
             <div class="row">
+            	</br>
             	<p class="text-center">
  					<a href='http://www.edigene.com/en/index.html', target="_blank"><img  src="assets/edigene_logo.png" alt="edigene logo" width="200" height="40"></a>
             	</p>	
