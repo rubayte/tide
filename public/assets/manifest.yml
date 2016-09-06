@@ -43,8 +43,10 @@ coverpic.png: coverpic-48db23344f079a8741883575c4d83895.png
 coverpic/index.png: coverpic-48db23344f079a8741883575c4d83895.png
 data-security.png: data-security-242713c58ee659867cac33f12bb2f69a.png
 data-security/index.png: data-security-242713c58ee659867cac33f12bb2f69a.png
-edigene_logo.png: edigene_logo-e80509a49a086e34bcedb488e5a7e0e5.png
-edigene_logo/index.png: edigene_logo-e80509a49a086e34bcedb488e5a7e0e5.png
+edigene_logo.png: edigene_logo-0d53d2fc91a07e1721ece5cd100e1c9c.png
+edigene_logo/index.png: edigene_logo-0d53d2fc91a07e1721ece5cd100e1c9c.png
+edigene_logo_transparent.png: edigene_logo_transparent-e80509a49a086e34bcedb488e5a7e0e5.png
+edigene_logo_transparent/index.png: edigene_logo_transparent-e80509a49a086e34bcedb488e5a7e0e5.png
 eva.jpg: eva-aac763f92ab9510684e14e2a0f9f40d9.jpg
 eva/index.jpg: eva-aac763f92ab9510684e14e2a0f9f40d9.jpg
 headerMain.jpg: headerMain-ce0ef77f15fbf91f2ed78fd40e1f93d2.jpg
@@ -105,8 +107,8 @@ tide.png: tide-ffe1cfab534b9f03c4aeff79d8e8bbd8.png
 tide/index.png: tide-ffe1cfab534b9f03c4aeff79d8e8bbd8.png
 tide2.png: tide2-a6e86106b5f4e8f2e5d6a207cdc3f87c.png
 tide2/index.png: tide2-a6e86106b5f4e8f2e5d6a207cdc3f87c.png
-application.js: application-a991404c294cbea1bf3e630b7c831520.js
-application/index.js: application-a991404c294cbea1bf3e630b7c831520.js
+application.js: application-7cd3bd22cbf1b445de7fb3cd9bf2948a.js
+application/index.js: application-7cd3bd22cbf1b445de7fb3cd9bf2948a.js
 application.css: application-39e1e697a6b315406909d0c2a01cd318.css
 application/index.css: application-39e1e697a6b315406909d0c2a01cd318.css
 FontAwesome.otf: FontAwesome-a225b62c1c772b969fe317f71ad17d85.otf
