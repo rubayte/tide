@@ -24,7 +24,7 @@
                   		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>TIDE premium</b><span class="caret"></span></a>
                   		<ul class="dropdown-menu">
                   			<li><a href="#gettingstarted"><b>Getting Started</b></a><li>
-                  			<li><a href="#request"><b>Request TIDE Software</b></a><li>
+                  			<li><a href="#request"><b>Request TIDE Premium Software</b></a><li>
                     		<li><a href="#requirements"><b>Technical Requirements</b></a></li>
                     		<li role="separator" class="divider"></li>
                     		<li><a href="#tideusers"><b>TIDE Premium Users</b></a></li>
@@ -163,35 +163,9 @@
                         <p class="text-muted">Ready to use TIDE software package also comes with one year technical support*.</p>
                     </div>
             	</div>
-            </div>	
+            </div>
+            </br>	
         </div>	
-        <div class="container">
-        	<div class="row">
-        		<div class="col-lg-12 text-center">
-                    <h2>How does this work?</h2>
-                </div>
-        	</div>
-        	<div class="row">
-        		<div class="col-lg-4 col-md-6 text-center">
-                    <div class="service-box">
-                        <h3>Step 1 &gt; <span class="text-primary">Request TIDE</span></h3>
-                        <p class="text-muted">Request TIDE software package via this web app by choosing an option that fits your organization.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="service-box">
-                    	<h3>Step 2 &gt; <span class="text-primary">License Agreement</span></h3>
-                        <p class="text-muted">Next, the Tech Transfer Office of NKI-AVL will get in touch with you to finalize the license agreement.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="service-box">
-                    	<h3>Step 3 &gt; <span class="text-primary">Download TIDE</span></h3>
-                        <p class="text-muted">Done! Your account will be created and you can download the ready to deploy TIDE package.</p>
-                    </div>
-                </div>
-        	</div>		
-        </div>
         <div class="container">
         	<div class="row">
         		<div class="col-lg-12 text-center">
@@ -240,12 +214,41 @@
                     </div>
                 </div>
         	</div>
+        	</br>
+        </div>
+                <div class="container">
+        	<div class="row">
+        		<div class="col-lg-12 text-center">
+                    <h2>How does this work?</h2>
+                </div>
+        	</div>
+        	<div class="row">
+        		<div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <h3>Step 1 &gt; <span class="text-primary">Request TIDE</span></h3>
+                        <p class="text-muted">Request TIDE software package via this web app by choosing an option that fits your organization.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                    	<h3>Step 2 &gt; <span class="text-primary">License Agreement</span></h3>
+                        <p class="text-muted">Next, the Tech Transfer Office of NKI-AVL will get in touch with you to finalize the license agreement.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                    	<h3>Step 3 &gt; <span class="text-primary">Download TIDE</span></h3>
+                        <p class="text-muted">Done! Your account will be created and you can download the ready to deploy TIDE package.</p>
+                    </div>
+                </div>
+        	</div>		
+        	</br>
         </div>		
         <div class="container">
             <div class="row">
             	<div class="col-lg-12 text-center">
             		<div class="service-box">
-		            	<a href="#request" class="btn btn-primary btn-xl">Request TIDE Software Package</a>
+		            	<a href="#request" class="btn btn-primary btn-xl">Request TIDE Premium Software Package</a>
 					</div>
 	            </div>
 	            <div class="col-lg-12 text-center">
@@ -286,7 +289,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Request TIDE Software Package</h2>
+                    <h2 class="section-heading">Request TIDE Premium Software Package</h2>
                     <p>Please provide your contact information below. Our Technology Transfer Office will contact you as soon as possible.</p>
                     <hr class="primary">   
                 </div>
@@ -307,7 +310,7 @@
 		 			<%end%> 	       
 					<%= form_tag(:controller => 'app', :action => 'orderAction') do %>
 				   		<%= select_tag :chosenPlan, options_for_select([ 'Select an option', 'Academic', 'SME', 'Corporate' ], @selectedPlan), :class => "form-control" %></br>
-			   			<%= text_field_tag :name , nil, :placeholder => "Full name of authorized signatory", :class => "form-control" %></br>
+			   			<%= text_field_tag :name , nil, :placeholder => "Full name", :class => "form-control" %></br>
    		    			<%= text_field_tag :email , nil, :placeholder => "Email", :class => "form-control" %></br>
    		    			<%= text_field_tag :organization , nil, :placeholder => "Company / Institute / University name", :class => "form-control" %></br>
 						<%= text_area_tag :organizationAddress , nil, :placeholder => "Company / Institute / University complete address", :class => "form-control" %></br>
