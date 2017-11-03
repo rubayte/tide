@@ -10,21 +10,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">PAGE TOP</a>
+                <a class="navbar-brand page-scroll" href="#page-top">TIDE</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-
-                    <li>
-                        <a class="page-scroll" href="#about"><b>TIDE</b></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#about-tider"><b>TIDER</b></a>
-                    </li>
-
-					<!--
                     <li>
                         <a class="page-scroll" href="#about"><b>About</b></a>
                     </li>
@@ -39,7 +30,11 @@
                     		<li><a href="#tideusers"><b>TIDE Premium Users</b></a></li>
                   		</ul>
             		</li>
-
+            		<!--
+            		<li>
+            			<a class="page-scroll" href="#tideusers"><b>Tide Users</b></a>
+            		</li>
+            		-->
                     <li>
                         <a class="page-scroll" href="#contact"><b>Contact</b></a>
                     </li>
@@ -53,6 +48,7 @@
                 	  	<% else -%>
                 	  		<li><a href="home"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> &nbsp; <b>Dashboard</b></a></li>
 						<% end -%>
+						<!--<li><a href="#"><span title="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> &nbsp; Help</span></a></li>-->
                 	    <li role="separator" class="divider"></li>
    						<li><a href="logout"><span title="Logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp; <b>Logout</b> </span></a></li>
                 	  </ul>
@@ -70,7 +66,6 @@
 							<% end -%>
 							</div>	
                 	  	</li>
-  	            		-->
                 	  </ul>
             		</li>
             		<% end -%>
@@ -84,75 +79,23 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-            	<h3>METHOD FOR RAPID AND EASY QUANTITATIVE ASSESSMENT OF GENOME EDITING</h3>
-            	<div class="row">
-            		<!-- tide -->
-					<div class="col-xs-6">
-						<p align="center"><img  src="assets/headerMain3.jpg" alt="" class="img-responsive"></p>
-						<ul align="left">
-							<li>For non-templated Cas9 editing</li>
-							<li>Input: 2 Sanger sequence traces</li>
-							<li>Output: Quantitative spectrum of indels around the cut site</li>
-						</ul>
-						</br>
-						<a  href="#about"><b>Read more!</b></a>
-						<hr>	
-						<a href="#" class="btn btn-primary-top btn-xl page-scroll">Start TIDE</a>
-						<!--
-						<a href="http://tide-calculator.nki.nl/" target="_blank" class="btn btn-primary-top btn-xl page-scroll">Free webtool</a>
-						<hr>
-						<a href="#gettingstarted" class="btn btn-primary-top btn-xl page-scroll">TIDE premium</a>
-						<hr>
-		                <div class="row">
-			               	<p><font size="3">TIDE published at <a href="http://nar.oxfordjournals.org/content/42/22/e168" target="_blank">Nucleic Acid Research</a> </br> 
-								TIDE developed at <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %></font>
-							</p>
-                		</div>
-                		-->
-					</div>
-					<!-- tide -->
-					<div class="col-xs-6">
-						<p align="center"><img  src="assets/TIDERlogo.png" alt="" class="img-responsive"></p>
-						<ul align="left">
-							<li>For template-directed Cas9 editing</li>
-							<li>Input: 3 Sanger sequence traces</li>
-							<li>Output: Quantification of templated mutations plus the spectrum of non-templated indels</li>
-						</ul>
-						<a  href="#about-tider"><b>Read more!</b></a>
-						<hr>	
-						<a href="#" class="btn btn-primary-top btn-xl page-scroll">Coming soon!</a>
-						<!--
-						<a href="http://tider-calculator.nki.nl/" target="_blank" class="btn btn-primary-top btn-xl page-scroll">Free webtool</a>
-						<hr>
-						<a href="#gettingstarted" class="btn btn-primary-top btn-xl page-scroll">TIDER premium</a>
-						<hr>
-		                <div class="row">
-			               	<p><font size="3">TIDER published at <a href="http://nar.oxfordjournals.org/content/42/22/e168" target="_blank">Nucleic Acid Research</a> </br> 
-								TIDER developed at <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %></font>
-							</p>
-                		</div>
-                		-->
-					</div>
-				</div>	
-            </div>
-        </div>
-    </header>
-    
-    <!--
-    			<p align="center"><img  src="assets/headerMain3.jpg" alt="" class="img-responsive"></p>
-      	        <h3>METHOD FOR EASY QUANTITATIVE ASSESSMENT OF GENOME EDITING</h3>
-                
+            	<p align="center"><img  src="assets/headerMain3.jpg" alt="" class="img-responsive"></p>
+                <h3>METHOD FOR EASY QUANTITATIVE ASSESSMENT OF GENOME EDITING</h3>
+                <!--<p>TIDE is a simple and accurate assay to precisely determine the spectrum and frequency of targeted mutations generated in a pool of cells by  genome CRISPR/Cas9
+              	genome editing tools.</p> -->
                 <a href="http://tide-calculator.nki.nl/" target="_blank" class="btn btn-primary-top btn-xl page-scroll">Free webtool</a>
                 <hr>
-                
+                <!--<h4>FOR LOCAL INSTALLATION OF TIDE</h4>-->
                 <a href="#gettingstarted" class="btn btn-primary-top btn-xl page-scroll">TIDE premium</a>
                 <hr>
                 <div class="row">
                	<p><font size="3">TIDE published at <a href="http://nar.oxfordjournals.org/content/42/22/e168" target="_blank">Nucleic Acid Research</a> </br> 
 					TIDE developed at <%= link_to "Netherlands Cancer Institute - NKI", "http://www.nki.nl", :target => "_blank" %></font></p>
                 </div>
-    -->
-	
+            </div>
+        </div>
+    </header>
+
     <section id="about">
         <div class="container">
             <div class="row">
@@ -180,36 +123,6 @@
         </div>
     </section>
 
-    <section id="about-tider">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">TIDER: Tracking of Insertion, DEletions and Recombination events</h2>
-                    <hr class="primary">
-                    <p>
-                    	TIDER is easy to use method to estimates the frequency of small targeted nucleotide changes at the site of a targeted DSB introduced by 
-                    	homology-directed repair with a donor template.
-                    	
-						TIDER requires four steps: 
-						1.  One pair of standard PCR reactions. 
-						2.  One pair of site-directed mutagenesis PCR  reactions. 
-						3.  Three standard capillary ("Sanger") sequencing reactions. 
-						4. Analysis of the three resulting raw sequencing files using a dedicated sequence trace decomposition web tool. The algorithm 
-						accurately reconstructs the spectrum of indels from the sequence traces and gives the frequency of occurred homologous directed repair events. 
-
-                    </p>
-                    <p align="center" class="text-faded">
-	                    <img src="assets/tider.png" alt="" width="500" height="500" class="img-responsive">
- 					</p>
-                   	<a href="http://nar.oxfordjournals.org/content/42/22/e168" target="_blank" class="btn btn-primary btn-xl">View TIDER publication</a>
-					<!--<hr class="light">
-                    <a href="#gettingstarted" class="btn btn-default btn-xl">Get Started For TIDE Local Installation!</a>-->
-                </div>
-            </div>
-        </div>
-    </section>
-
-	<!--
     <section id="gettingstarted" class="bg-custom">
         <div class="container">
             <div class="row">
@@ -355,9 +268,17 @@
             				*Continued tech support &amp; free updates of new TIDE versions after the initial one year term can be secured against 
             				an annual fee that is 15% of the initial license/set-up fee.
             				</br>
+            		<!--
+            			</font>
+            		</p>
+   	        		<p>
+   	        			<font size="2">
+   	        		-->		
    	        				**This discounted rate will allow NKI to publish/advertise the fact that we’ve entered into a license agreement with Licensee concerning the Software,
    	        			 	primarily through our TIDE website.
    	        			 </font>
+   	        			<!--**The quoted prices include an optional 20% discount that is applied in exchange for permission to use your organization's 
+   	        			name/logo solely in connection with the fact that you entered into a license agreement for TIDE with us. -->
    	        		</p>
             	</div>
             </div>	
@@ -446,7 +367,6 @@
 			</div>	
 		</div>
 	</section>
-	
 	<section id="tideusers">
         <div class="container">
             <div class="row">
@@ -500,5 +420,5 @@
             </div>	
         </div>
     </section>
-	-->
+
 
